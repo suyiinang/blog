@@ -6,6 +6,8 @@ author:
   - name: Ang Su Yiin
     url: https://public.tableau.com/profile/suyiinang
 date: 01-04-2021
+categories:
+  - Test
 output:
   distill::distill_article:
     self_contained: false
