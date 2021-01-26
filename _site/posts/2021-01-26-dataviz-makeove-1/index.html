@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["dataviz-makeove-1_files/anchor-4.2.2/anchor.min.js","dataviz-makeove-1_files/bowser-1.9.3/bowser.min.js","dataviz-makeove-1_files/distill-2.2.21/template.v2.js","dataviz-makeove-1_files/header-attrs-2.6/header-attrs.js","dataviz-makeove-1_files/jquery-1.11.3/jquery.min.js","dataviz-makeove-1_files/webcomponents-2.0.0/webcomponents.js","images/fig1.png","images/fig10.png","images/fig11.png","images/fig12.png","images/fig13.png","images/fig14.png","images/fig15.png","images/fig16.png","images/fig17.png","images/fig2.jpg","images/fig3.png","images/fig4.png","images/fig5.png","images/fig6.png","images/fig7.png","images/fig8.png","images/fig9.png"]}
+  {"type":"character","attributes":{},"value":["dataviz-makeove-1_files/anchor-4.2.2/anchor.min.js","dataviz-makeove-1_files/bowser-1.9.3/bowser.min.js","dataviz-makeove-1_files/distill-2.2.21/template.v2.js","dataviz-makeove-1_files/header-attrs-2.6/header-attrs.js","dataviz-makeove-1_files/jquery-1.11.3/jquery.min.js","dataviz-makeove-1_files/webcomponents-2.0.0/webcomponents.js","images/fig1.png","images/fig10.png","images/fig11.png","images/fig12.png","images/fig13.png","images/fig14.png","images/fig15.png","images/fig16.png","images/fig2.jpg","images/fig3.png","images/fig4.png","images/fig5.png","images/fig6.png","images/fig7.png","images/fig8.png","images/fig9.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2081,20 +2081,13 @@ document.addEventListener('DOMContentLoaded', function() {
 </nav>
 </div>
 <p>For my first DataViz makeover, I have used data from the <a href="https://stats.mom.gov.sg/Pages/Labour-Force-In-Singapore-2019.aspx">Ministry of Manpower of Singapore</a>, which analyses Singapore’s labour force to understand shifts in the labour market to facilitate better decision making.</p>
-<h1 id="the-original-visualisation">1) The original visualisation</h1>
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-1"></span>
-<img src="images/fig1.png" alt="Chart 6 of Labour Force in Singapore 2019 report (page 22)" width="50%" />
-<p class="caption">
-Figure 1: Chart 6 of Labour Force in Singapore 2019 report (page 22)
-</p>
-</div>
-</div>
+<h2 id="the-original-visualisation">1) The original visualisation</h2>
+<p><img src="images/fig1.png" alt=":scale 60%" /> <em>Figure 1: Chart 6 of Labour Force in Singapore 2019 report (page 22)</em></p>
 <p>Before making over the selected visualisation, it is important to have a clear understanding of the context of the visualisation and its key takeaway which is depend on:<br />
 - <strong>Who</strong>: Individuals, businesses and primarily policy-makers to help improve the well-being and optimisation of workers.<br />
 - <strong>What</strong>: Understanding the shift in Singapore’s labour force from the respective age bands over the past 10 years (2009 to 2019).<br />
 - <strong>How</strong>: Showing that labour force distribution and participation rate of older workers (55 and over) has increased, which resulted in the increase in labour force’s median age.</p>
-<h1 id="critiques-and-suggestions-for-current-visualisation">2) Critiques and suggestions for current visualisation</h1>
+<h2 id="critiques-and-suggestions-for-current-visualisation">2) Critiques and suggestions for current visualisation</h2>
 <h3 id="clarity">2.1 Clarity</h3>
 <table>
 <colgroup>
@@ -2179,16 +2172,9 @@ Figure 1: Chart 6 of Labour Force in Singapore 2019 report (page 22)
 </tr>
 </tbody>
 </table>
-<h1 id="proposed-design">3) Proposed Design</h1>
+<h2 id="proposed-design">3) Proposed Design</h2>
 <h3 id="sketch">3.1 Sketch</h3>
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-2"></span>
-<img src="images/fig2.jpg" alt="Sketch of proposed design" width="100%" />
-<p class="caption">
-Figure 2: Sketch of proposed design
-</p>
-</div>
-</div>
+<p><img src="images/fig2.jpg" alt=":scale 60%" /> <em>Figure 2: Sketch of proposed design</em></p>
 <h3 id="advantages-of-proposed-design">3.2 Advantages of proposed design</h3>
 <ol type="i">
 <li>Clear title – shows how the participation rate and distribution of Singapore’s labour force has shifted by age bands from 2009 to 2019.</li>
@@ -2199,7 +2185,7 @@ Figure 2: Sketch of proposed design
 <li>Only selected figures (2009 and 2019) are shown to highlight the shift.</li>
 <li>Colours are consistent throughout the dashboard.</li>
 </ol>
-<h1 id="data-visualisation-steps">4) Data visualisation steps</h1>
+<h2 id="data-visualisation-steps">4) Data visualisation steps</h2>
 <p>In remaking the existing visualisation, I used<br />
 i) Table 5 (Resident Labour Force Participation Rate by Age and Sex, 2009 - 2019), and<br />
 ii) Table 7 (Resident Labour Force Aged Fifteen Years and Over by Age and Sex, 2009 - 2019)<br />
@@ -2207,73 +2193,25 @@ from the <a href="https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx">M
 <h3 id="data-preparation">4.1 Data preparation</h3>
 <p><strong>Data: Table 5 - LFPR</strong></p>
 <ol type="1">
-<li>Remove unnecessary columns<br />
+<li><p>Remove unnecessary columns<br />
 Delete columns A, B, D, F, H, J, L, M, N, P, R, T, V, X, Z.<br />
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-3"></span>
-<img src="images/fig3.png" alt="Remove unnecessary columns" width="30%" />
-<p class="caption">
-Figure 3: Remove unnecessary columns
-</p>
-</div></li>
+<img src="images/fig3.png" alt=":scale 60%" /> <em>Figure 3: Remove unnecessary columns</em></p></li>
+<li><p>Remove empty rows<br />
+Delete rows 1 to 4 and 19. <img src="images/fig4.png" alt=":scale 60%" /> <em>Figure 4: Remove empty rows</em></p></li>
+<li><p>Rename header<br />
+Rename header from “Age (Years)” to “Age band”. <img src="images/fig5.png" alt=":scale 60%" /> <em>Figure 5: Rename header</em></p></li>
+<li><p>Delete unnecessary tabs Remove tabs T5_F and T5_M. Save and rename file as T5_T_clean.</p></li>
 </ol>
-</div>
-<ol start="2" type="1">
-<li>Remove empty rows<br />
-Delete rows 1 to 4 and 19.
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-4"></span>
-<img src="images/fig4.png" alt="Remove empty rows" width="30%" />
-<p class="caption">
-Figure 4: Remove empty rows
-</p></li>
-</ol>
-</div>
-</div>
-<ol start="3" type="1">
-<li>Rename header<br />
-Rename header from “Age (Years)” to “Age band”.
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-5"></span>
-<img src="images/fig5.png" alt="Rename header" width="30%" />
-<p class="caption">
-Figure 5: Rename header
-</p></li>
-</ol>
-</div>
-</div>
-<ol start="4" type="1">
-<li>Delete unnecessary tabs Remove tabs T5_F and T5_M. Save and rename file as T5_T_clean.</li>
-</ol>
-<p><strong>Data: Table 7 - Labour force</strong><br />
-1) Tidy data<br />
-Repeat steps 1 to 4 as done for Table 5 above.</p>
-<ol start="2" type="1">
-<li>Pivot data<br />
-Import file into Tableau, select all the years, right click and select “Pivot”.
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-6"></span>
-<img src="images/fig6.png" alt="Pivot data" width="30%" />
-<p class="caption">
-Figure 6: Pivot data
-</p></li>
-</ol>
-</div>
-</div>
-<ol start="3" type="1">
-<li>Rename headers<br />
-Rename ‘Pivot Field Names’ to ‘Year’. Rename ‘Pivot Field Values’ to ‘Labour force’.
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-7"></span>
-<img src="images/fig7.png" alt="Rename headers" width="227" />
-<p class="caption">
-Figure 7: Rename headers
-</p></li>
-</ol>
-</div>
-</div>
-<ol start="4" type="1">
+<p><strong>Data: Table 7 - Labour force</strong></p>
+<ol type="1">
+<li><p>Tidy data<br />
+Repeat steps 1 to 4 as done for Table 5 above.</p></li>
+<li><p>Pivot data<br />
+Import file into Tableau, select all the years, right click and select “Pivot”. <img src="images/fig6.png" alt=":scale 60%" /><br />
+<em>Figure 6: Pivot data</em></p></li>
+<li><p>Rename headers<br />
+Rename ‘Pivot Field Names’ to ‘Year’. Rename ‘Pivot Field Values’ to ‘Labour force’. <img src="images/fig7.png" alt=":scale 50%" /><br />
+<em>Figure 7: Rename headers</em></p></li>
 <li><p>Change data type<br />
 Change Year data type to “Date”.</p></li>
 <li><p>Export file to csv<br />
@@ -2281,88 +2219,38 @@ Save file as “T7_T_pivot”.</p></li>
 </ol>
 <h3 id="data-visualisation">4.2 Data visualisation</h3>
 <p>Import both T5_T_clean and T7_T_pivot into Tableau.</p>
-<strong>Data source tab - T5_T_clean</strong><br />
-1) Import into Tableau &amp; create flat file<br />
-Inspect imported data: Upon importation, the LFPR from 2009 to 2019 are spread across multiple columns. As such, we want to create a flat file - select the columns from 2009 to 2019, right click and select pivot.
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-8"></span>
-<img src="images/fig8.png" alt="Create flat file" width="30%" />
-<p class="caption">
-Figure 8: Create flat file
-</p>
-</div>
-</div>
-<ol start="2" type="1">
-<li>Rename headers<br />
+<p><strong>Data source tab - T5_T_clean</strong></p>
+<ol type="1">
+<li><p>Import into Tableau &amp; create flat file<br />
+Inspect imported data: Upon importation, the LFPR from 2009 to 2019 are spread across multiple columns. As such, we want to create a flat file - select the columns from 2009 to 2019, right click and select pivot. <img src="images/fig8.png" alt=":scale 60%" /><br />
+<em>Figure 8: Pivot data</em></p></li>
+<li><p>Rename headers<br />
 Rename ‘Pivot Field Names’ to ‘Year’.<br />
 Rename ‘Pivot Field Values’ to ‘LFPR%’.<br />
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-9"></span>
-<img src="images/fig9.png" alt="Rename header" width="30%" />
-<p class="caption">
-Figure 9: Rename header
-</p></li>
-</ol>
-</div>
-</div>
-<ol start="3" type="1">
-<li>Change data type<br />
+<img src="images/fig9.png" alt=":scale 60%" /><br />
+<em>Figure 9: Rename headers</em></p></li>
+<li><p>Change data type<br />
 Change ‘Year’ data type from string to Date.<br />
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-10"></span>
-<img src="images/fig10.png" alt="Change data type" width="30%" />
-<p class="caption">
-Figure 10: Change data type
-</p></li>
+<img src="images/fig10.png" alt=":scale 60%" /><br />
+<em>Figure 10: Change data type</em></p></li>
+<li><p>Import T7_T_pivot<br />
+Inspect imported data to ensure data is in flat file format and data types are correct.</p></li>
 </ol>
-</div>
-</div>
-<ol start="4" type="1">
-<li>Import T7_T_pivot<br />
-Inspect imported data to ensure data is in flat file format and data types are correct.</li>
-</ol>
-<strong>LFPR% tab</strong><br />
-1) Create line chart<br />
+<p><strong>LFPR% tab</strong></p>
+<ol type="1">
+<li><p>Create line chart<br />
 Drag [Year] and [LFPR%] to Columns and Rows respectively.<br />
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-11"></span>
-<img src="images/fig11.png" alt="Create line chart" width="30%" />
-<p class="caption">
-Figure 11: Create line chart
-</p>
-</div>
-</div>
-<ol start="2" type="1">
-<li>Apply filter<br />
+<img src="images/fig11.png" alt=":scale 30%" /><br />
+<em>Figure 11: Create line chart</em></p></li>
+<li><p>Apply filter<br />
 Drag [Age band] to Filters panel, and check these 4 values: 15- 24, 25-54, 55-64, 65+.<br />
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-12"></span>
-<img src="images/fig12.png" alt="Apply filter" width="30%" />
-<p class="caption">
-Figure 12: Apply filter
-</p></li>
-</ol>
-</div>
-</div>
-<ol start="3" type="1">
-<li>Apply colour<br />
+<img src="images/fig12.png" alt=":scale 40%" /><br />
+<em>Figure 12: Appy filter</em></p></li>
+<li><p>Apply colour<br />
 Drag [Age band] to colour, change colours according to figure 13.<br />
 Update ‘Automatic’ to ‘Line’.<br />
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-13"></span>
-<img src="images/fig13.png" alt="Apply colour" width="30%" />
-<p class="caption">
-Figure 13: Apply colour
-</p></li>
-</ol>
-</div>
-</div>
-<ol start="4" type="1">
+<img src="images/fig13.png" alt=":scale 60%" /><br />
+<em>Figure 13: Apply colour</em></p></li>
 <li><p>Update view<br />
 Update view from ‘Standard’ to ‘Entire View’.</p></li>
 <li><p>Add annotation<br />
@@ -2380,20 +2268,13 @@ Rename y-axis to “Labour Force Participation Rate (LFPR%)”.</p></li>
 Add title: More Singapore residents across all age groups work. <em>&lt;font size 14&gt;</em><br />
 However, the increase in older workers’ (55-64 and 65+) participation rate of 9ppt and 11.6ppt was triple that of younger workers’ (15 - 24 and 25 - 54) of 3.6ppt and 3.3ppt! <em>&lt;font size 10&gt;</em></p></li>
 </ol>
-<strong>Share of LP</strong><br />
-1) Create new age band group<br />
+<p><strong>Share of LP</strong></p>
+<ol type="1">
+<li><p>Create new age band group<br />
 Right click [Age band] &gt; Create &gt; Group.<br />
 Group and rename according to figure below.<br />
-
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-14"></span>
-<img src="images/fig14.png" alt="Create new age band group" width="20%" />
-<p class="caption">
-Figure 14: Create new age band group
-</p>
-</div>
-</div>
-<ol start="2" type="1">
+<img src="images/fig14.png" alt=":scale 10%" /><br />
+<em>Figure 14: Group age bands</em></p></li>
 <li><p>Apply filter Filter out “Total”<br />
 Add colour Drag [Age band] to colour.<br />
 Check and ensure that colour is consistent with tab “LFPR%”.<br />
@@ -2401,17 +2282,9 @@ Reduce opacity to “60%”.</p></li>
 <li><p>Create stacked bar chart<br />
 Drag [Labour force] and [Year1] to Columns and Rows respectively.<br />
 Convert to percentage : Right click [SUM(Labour force)] &gt; Quick Table Calculation &gt; Percent of Total.<br />
-Convert to stacked bar : Right click [SUM(Labour force)] &gt; Compute using &gt; Age band (group).</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-15"></span>
-<p><img src="images/fig15.png" alt="Create stacked bar chart" width="30%" /></p>
-<p class="caption">
-<p>Figure 15: Create stacked bar chart</p>
-</p></li>
-</ol>
-</div>
-</div>
-<ol start="4" type="1">
+Convert to stacked bar : Right click [SUM(Labour force)] &gt; Compute using &gt; Age band (group).<br />
+<img src="images/fig15.png" alt=":scale 30%" /><br />
+<em>Figure 15: Create stacked bar chart</em></p></li>
 <li><p>Change view<br />
 From “Standard” to “Fit height”.</p></li>
 <li><p>Rename x-axis<br />
@@ -2420,24 +2293,14 @@ Remove y-axis Right click &gt; Hide field labels for row.</p></li>
 <li><p>Remove grid lines<br />
 Using Format Lines panel.</p></li>
 <li><p>Add annotation<br />
-Drag mouse pointer and select the 2009 and 2019 bars &gt; right click &gt; Mark labels &gt; Always show.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-16"></span>
-<p><img src="images/fig16.png" alt="Add annotation" width="30%" /></p>
-<p class="caption">
-<p>Figure 16: Add annotation</p>
-</p></li>
+Drag mouse pointer and select the 2009 and 2019 bars &gt; right click &gt; Mark labels &gt; Always show</p></li>
+<li><p>Add title<br />
+Add title : Singapore’s labour force gets older.The median age has increased from 41 in 2009 to 44 in 2019 due to the gradual shift towards older workers (55-64 and 65+ band) over the past 10 years.</p></li>
 </ol>
-</div>
-</div>
-<ol start="8" type="1">
-<li>Add title<br />
-Add title : Singapore’s labour force gets older.The median age has increased from 41 in 2009 to 44 in 2019 due to the gradual shift towards older workers (55-64 and 65+ band) over the past 10 years.</li>
-</ol>
-<p><strong>Dashboard 1</strong><br />
-1) Add title<br />
-Add title : “The shift in Singapore’s labour force distribution and participation rate by age bands 2009 to 2019” with grey background, white text and font size 23.</p>
-<ol start="2" type="1">
+<p><strong>Dashboard 1</strong></p>
+<ol type="1">
+<li><p>Add title<br />
+Add title : “The shift in Singapore’s labour force distribution and participation rate by age bands 2009 to 2019” with grey background, white text and font size 23.</p></li>
 <li><p>Add commentary<br />
 Using Objects &gt; Text &gt; drag to bottom of title and add:<br />
 “Although labour force participation rate (LPFR) across all age groups has increased from 2009 to 2019, the significant increase in older workers’ (55-64 and 65+) participation has shifted the labour force’s distribution towards an older labour force. This shift is due to multitude of reasons, namely aging population due to low birth rates, extended retirement age, longer average lifespan, etc.”</p></li>
@@ -2451,17 +2314,11 @@ The raw data: <a href="https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.as
 <li><p>Add author<br />
 Add text to bottom left corner and add text : “DataViz Makeover #1 by <span class="citation" data-cites="suyiinang">@suyiinang</span>” align left.</p></li>
 </ol>
-<h1 id="final-visualisation">5) Final visualisation</h1>
-<h2 id="snapboard-of-dashboard">5.1 Snapboard of dashboard</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-17"></span>
-<img src="images/fig17.png" alt="Dashboard" width="100%" />
-<p class="caption">
-Figure 17: Dashboard
-</p>
-</div>
-</div>
-<h2 id="main-observations">5.2 Main observations</h2>
+<h2 id="final-visualisation">5) Final visualisation</h2>
+<h3 id="snapboard-of-dashboard">5.1 Snapboard of dashboard</h3>
+<p><img src="images/fig16.png" /> Figure 17: Dashboard<br />
+<em>Full visualisation available on <a href="https://public.tableau.com/profile/suyiinang#!/vizhome/DataViz_16116824631860/Dashboard1">Tableau Public</a></em></p>
+<h3 id="main-observations">5.2 Main observations</h3>
 <ul>
 <li>Labour force participation rate (LFPR) has increased across all age bands. While younger workers (15 – 24 and 25 – 54) experienced a slight increase of 3.6ppt and 3.3ppt since 2009, the increase in older workers’ (55-64 and 65) participation was <strong>triple</strong> that of younger workers, increasing by 9ppt and 11.6ppt since 2009.</li>
 <li>Participation rate of 15 -24 workers tend to fluctuate more than the other age bands.</li>
