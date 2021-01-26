@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["images/fig1.png","images/fig10.png","images/fig11.png","images/fig12.png","images/fig13.png","images/fig14.png","images/fig15.png","images/fig16.png","images/fig17.png","images/fig2.jpg","images/fig3.png","images/fig4.png","images/fig5.png","images/fig6.png","images/fig7.png","images/fig8.png","images/fig9.png"]}
+  {"type":"character","attributes":{},"value":["dataviz-makeove-1_files/anchor-4.2.2/anchor.min.js","dataviz-makeove-1_files/bowser-1.9.3/bowser.min.js","dataviz-makeove-1_files/distill-2.2.21/template.v2.js","dataviz-makeove-1_files/header-attrs-2.6/header-attrs.js","dataviz-makeove-1_files/jquery-1.11.3/jquery.min.js","dataviz-makeove-1_files/webcomponents-2.0.0/webcomponents.js","images/fig1.png","images/fig10.png","images/fig11.png","images/fig12.png","images/fig13.png","images/fig14.png","images/fig15.png","images/fig16.png","images/fig17.png","images/fig2.jpg","images/fig3.png","images/fig4.png","images/fig5.png","images/fig6.png","images/fig7.png","images/fig8.png","images/fig9.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1575,9 +1575,9 @@ Figure 1: Chart 6 of Labour Force in Singapore 2019 report (page 22)
 </table>
 <h1 id="proposed-design">3) Proposed Design</h1>
 <h3 id="sketch">3.1 Sketch</h3>
-<div class="layout-chunk" data-layout="l-body-outset">
+<div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:unnamed-chunk-2"></span>
-<img src="images/fig2.jpg" alt="Sketch of proposed design"  />
+<img src="images/fig2.jpg" alt="Sketch of proposed design" width="100%" />
 <p class="caption">
 Figure 2: Sketch of proposed design
 </p>
@@ -1640,9 +1640,12 @@ Figure 5: Rename header
 <ol start="4" type="1">
 <li>Delete unnecessary tabs Remove tabs T5_F and T5_M. Save and rename file as T5_T_clean.</li>
 </ol>
-<p><strong>Data: Table 7 - Labour force</strong> 1) Tidy data Repeat steps 1 to 4 as done for Table 5 above.</p>
+<p><strong>Data: Table 7 - Labour force</strong><br />
+1) Tidy data<br />
+Repeat steps 1 to 4 as done for Table 5 above.</p>
 <ol start="2" type="1">
-<li>Pivot data Import file into Tableau, select all the years, right click and select “Pivot”.
+<li>Pivot data<br />
+Import file into Tableau, select all the years, right click and select “Pivot”.
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:unnamed-chunk-6"></span>
 <img src="images/fig6.png" alt="Pivot data" width="30%" />
@@ -1665,12 +1668,16 @@ Figure 7: Rename headers
 </div>
 </div>
 <ol start="4" type="1">
-<li><p>Change data type Change Year data type to “Date”.</p></li>
-<li><p>Export file to csv Save file as “T7_T_pivot”.</p></li>
+<li><p>Change data type<br />
+Change Year data type to “Date”.</p></li>
+<li><p>Export file to csv<br />
+Save file as “T7_T_pivot”.</p></li>
 </ol>
 <h3 id="data-visualisation">4.2 Data visualisation</h3>
 <p>Import both T5_T_clean and T7_T_pivot into Tableau.</p>
-<strong>Data source tab - T5_T_clean</strong> 1) Import into Tableau &amp; create flat file Inspect imported data: Upon importation, the LFPR from 2009 to 2019 are spread across multiple columns. As such, we want to create a flat file - select the columns from 2009 to 2019, right click and select pivot.
+<strong>Data source tab - T5_T_clean</strong><br />
+1) Import into Tableau &amp; create flat file<br />
+Inspect imported data: Upon importation, the LFPR from 2009 to 2019 are spread across multiple columns. As such, we want to create a flat file - select the columns from 2009 to 2019, right click and select pivot.
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:unnamed-chunk-8"></span>
 <img src="images/fig8.png" alt="Create flat file" width="30%" />
@@ -1840,8 +1847,13 @@ Add text to bottom left corner and add text : “DataViz Makeover #1 by <span cl
 </ol>
 <h1 id="final-visualisation">5) Final visualisation</h1>
 <h2 id="snapboard-of-dashboard">5.1 Snapboard of dashboard</h2>
-<div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="images/fig17.png" width="828" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span id="fig:unnamed-chunk-17"></span>
+<img src="images/fig17.png" alt="Dashboard" width="100%" />
+<p class="caption">
+Figure 17: Dashboard
+</p>
+</div>
 </div>
 <h2 id="main-observations">5.2 Main observations</h2>
 <ul>

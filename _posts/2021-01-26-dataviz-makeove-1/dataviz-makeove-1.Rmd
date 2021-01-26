@@ -56,7 +56,7 @@ S/N | Critiques                     | Comments
 
 # 3) Proposed Design
 ### 3.1 Sketch
-```{r, fig.cap = "Sketch of proposed design", layout="l-body-outset", fig.width=5, fig.height=1.5}
+```{r, fig.cap = "Sketch of proposed design", out.width="100%"}
 knitr::include_graphics("images/fig2.jpg")
 ```
 ### 3.2 Advantages of proposed design
@@ -99,11 +99,11 @@ knitr::include_graphics("images/fig5.png")
 Remove tabs T5_F and T5_M.
 Save and rename file as T5_T_clean.
 
-**Data: Table 7 - Labour force**
-1) Tidy data
+**Data: Table 7 - Labour force**  
+1) Tidy data  
 Repeat steps 1 to 4 as done for Table 5 above.
 
-2) Pivot data
+2) Pivot data  
 Import file into Tableau, select all the years, right click and select “Pivot”.
 ```{r, fig.cap = "Pivot data", out.width = "30%"}
 knitr::include_graphics("images/fig6.png")
@@ -116,17 +116,17 @@ Rename ‘Pivot Field Values’ to ‘Labour force’.
 knitr::include_graphics("images/fig7.png")
 ```
 
-4) Change data type
+4) Change data type  
 Change Year data type to “Date”.
 
-5) Export file to csv
+5) Export file to csv  
 Save file as "T7_T_pivot".
 
 ### 4.2 Data visualisation
 Import both T5_T_clean and T7_T_pivot into Tableau.  
 
-**Data source tab - T5_T_clean**
-1) Import into Tableau & create flat file
+**Data source tab - T5_T_clean**  
+1) Import into Tableau & create flat file  
 Inspect imported data: Upon importation, the LFPR from 2009 to 2019 are spread across multiple columns. As such, we want to create a flat file - select the columns from 2009 to 2019, right click and select pivot.
 ```{r, fig.cap = "Create flat file", out.width = "30%"}
 knitr::include_graphics("images/fig8.png")
@@ -248,7 +248,7 @@ Add text to bottom left corner and add text : “DataViz Makeover #1 by @suyiina
 
 # 5) Final visualisation
 ## 5.1 Snapboard of dashboard
-```{r, fig.cap = "", layout="l-body-outset", fig.width=5, fig.height=1.5}
+```{r, fig.cap = "Dashboard", out.width= "100%"}
 knitr::include_graphics("images/fig17.png")
 ```
 

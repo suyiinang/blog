@@ -6,14 +6,14 @@
       "description": "Some additional details about the blog",
       "author": [],
       "contents": "\r\nAbout me\r\nI am a post-graduate student pursuing a masters of IT in Business (Analytics) at Singapore Management University.\r\nBefore venturing into the beautiful world of analytics, I spent 6 years in the auditing and financial due diligence department at PwC Singapore.\r\nAbout this blog\r\nThis blog is dedicated to showcase my assignments and project work relating to the Visual Analytics course (ISSS608) at Singapore Management University.\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-26T21:12:36+08:00"
+      "last_modified": "2021-01-26T21:46:30+08:00"
     },
     {
       "path": "index.html",
       "title": "Visual Analytics Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-26T21:13:04+08:00"
+      "last_modified": "2021-01-26T21:46:50+08:00"
     }
   ],
   "collections": ["posts/posts.json"]
