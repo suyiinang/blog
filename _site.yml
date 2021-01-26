@@ -1,8 +1,13 @@
 name: "blog"
-title: "Data Discovery"
+title: "My visual analytics journey"
 description: |
-  IDEA
+  Visual Analytics Blog
 output_dir: "_site"
+collections:
+  posts: 
+    categories: true
+  analyses:
+    categories: true
 navbar:
   right:
     - text: "Home"

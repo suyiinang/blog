@@ -4,7 +4,7 @@ description: |
   A short description of the post.
 author:
   - name: Ang Su Yiin
-    url: https://github.com/suyiinang
+    url: https://public.tableau.com/profile/suyiinang
 date: 01-04-2021
 output:
   distill::distill_article:
