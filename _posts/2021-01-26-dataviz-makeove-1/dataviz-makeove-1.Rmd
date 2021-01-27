@@ -38,20 +38,20 @@ Before making over the selected visualisation, it is important to have a clear u
 
 S/N | Critiques                     | Comments
 ----|-------------------------------|---------------------
-1   | **Chart title is not precise** – The title *“Resident labour force by age”* does not prepare the reader for the main takeaway which is “the increase in median age of labour force” the chart refers to the distribution of the resident labour force by age and is accompanied by a rather convoluted commentary on labour force participation rate (LFPR) of the different age bands and share of resident’s labour force, making it difficult to grasp the main message quickly. | Change title to “The shift in Singapore’s labour force distribution and participation rate by age from 2009 to 2019”
-2   | **Figures per commentary and chart are inconsistent** - The commentary quoted percentages that are aggregates of several age bands (i.e 25 to 54), while the chart uses 5-year intervals (i.e 25 to 29, 30 to 34, etc). This inconsistency hinders cross referencing between commentary and table. | Keep both consistent. Age bands must match for both chart and commentary.
-3   | **Axis title not properly labelled** – ‘Per Cent’ was labelled below the chart title, but not on the y axis. Age band not labelled on x-axis. Not labelling leaves room for misinterpretation and/or requires reader’s extra time to peruse the chart, all of which draws attention away from the main message. | It would be clearer and more quickly understood to the reader if both the y-axis and figures were appropriately labelled.
+1   | **Chart title is not precise** – The title *“Resident labour force by age”* does not prepare the reader for the main takeaway which is “the increase in median age of labour force” the chart refers to the distribution of the resident labour force by age and is accompanied by a rather convoluted commentary on labour force participation rate (LFPR) of the different age bands and share of resident’s labour force, making it difficult to grasp the main message quickly. | **Change title** to “The shift in Singapore’s labour force distribution and participation rate by age from 2009 to 2019”
+2   | **Figures per commentary and chart are inconsistent** - The commentary quoted percentages that are aggregates of several age bands (i.e 25 to 54), while the chart uses 5-year intervals (i.e 25 to 29, 30 to 34, etc). This inconsistency hinders cross referencing between commentary and table. | Keep both **consistent**. Age bands must match for both chart and commentary.
+3   | **Axis title not properly labelled** – ‘Per Cent’ was labelled below the chart title, but not on the y axis. Age band not labelled on x-axis. Not labelling leaves room for misinterpretation and/or requires reader’s extra time to peruse the chart, all of which draws attention away from the main message. | It would be clearer and more quickly understood to the reader if both the **y-axis** and **figures** were **appropriately labelled**.
 
 ### 2.2 Aesthetics
 S/N | Critiques                     | Comments
 ----|-------------------------------|------------
 4   | **Chart title’s font size and location** - title of the chart should precede the commentary so that the reader is mentally prepared going into the more detailed commentary. Font size of title should be bigger than the commentary.| Move title of chart above and commentary below. 
-5   | **Commentary is too long** – the reader has to read through the whole paragraph to understand the main idea of the visualisation. | Shortened commentary to only the key message. Highlight by using colour, bold or underline key takeaways.
-6   | **Line chart may not be the most appropriate chart** – From the chart, the reader can clearly see that there is an increase in percentage for those 55+, but the reader has to cross reference to the table below to get an idea of how much it declined by. Furthermore, it is difficult to see which age band increased/decreased the most. | Given that the main message is to highlight the significant increase and decrease in share of labour by the respective age groups, leading to the increase in median age, a more appropriate graph would be a stacked bar chart.
-7   | **Figures in table are redundant**- It is redundant to include all the figures in the table – why make the chart in the first place if one need to reads all the numbers in the table to understanding it. |	Remove table – only showcase key figures to drive the main idea.
-8   | **Median age label clutters**- too long, distracting and clutters the graph. | Remove label. Since there are only two text, include these figures into the commentary.
-9   | **The heavy shading of the table competes for attention.** The table is meant to support the main message hence shading should be kept minimal.Furthermore, the monotone shading does not add value (unlike a heat map which showcases the increase/decrease trends in values). | Remove shading. Colour should always be intentional - use shading only to highlight key figures.
-10  | **Different alignments for source and notes** make the whole visualisation look disorganised. |	Align these two either to the left or right to establish sense of unity and cohesion.
+5   | **Commentary is too long** – the reader has to read through the whole paragraph to understand the main idea of the visualisation. | **Shorten commentary** to only the key message. Highlight by using **colour, bold or underline** key takeaways.
+6   | **Line chart may not be the most appropriate chart** – From the chart, the reader can clearly see that there is an increase in percentage for those 55+, but the reader has to cross reference to the table below to get an idea of how much it declined by. Furthermore, it is difficult to see which age band increased/decreased the most. | Given that the main message is to highlight the significant increase and decrease in share of labour by the respective age groups, leading to the increase in median age, a more appropriate graph would be a **stacked bar chart**.
+7   | **Figures in table are redundant**- It is redundant to include all the figures in the table – why make the chart in the first place if one need to reads all the numbers in the table to understanding it. |	Remove table – only **showcase key figures** to drive the main idea.
+8   | **Median age label clutters**- too long, distracting and clutters the graph. | Remove median age label. Since there are only two text, **include these figures into the commentary**.
+9   | **The heavy shading of the table competes for attention.** The table is meant to support the main message hence shading should be kept minimal.Furthermore, the monotone shading does not add value (unlike a heat map which showcases the increase/decrease trends in values). | **Remove shading**. Colour should always be intentional - use shading only to highlight key figures.
+10  | **Different alignments for source and notes** make the whole visualisation look disorganised. |	**Align** these two either to the left or right to establish sense of unity and cohesion.
 
 ## 3) Proposed Design
 ### 3.1 Sketch
@@ -237,7 +237,9 @@ Add text to bottom left corner and add text : “DataViz Makeover #1 by @suyiina
 
 ## 5) Final visualisation
 ### 5.1 Snapboard of dashboard  
-![](images/fig16.png)
+```{r, layout="l-page"}
+knitr::include_graphics("images/fig16.png")
+```
 Figure 17: Dashboard  
 *Full visualisation available at [Tableau Public](https://public.tableau.com/profile/suyiinang#!/vizhome/DataViz_16116824631860/Dashboard1)*
 
