@@ -1,5 +1,5 @@
 ---
-title: "Visual Analytics Journal"
+title: "DataViz Journal"
 site: distill::distill_website
 listing: posts
 ---

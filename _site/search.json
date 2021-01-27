@@ -10,10 +10,10 @@
     },
     {
       "path": "index.html",
-      "title": "Visual Analytics Journal",
+      "title": "DataViz Journal",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-27T22:09:36+08:00"
+      "last_modified": "2021-01-27T22:23:38+08:00"
     }
   ],
   "collections": ["posts/posts.json"]
