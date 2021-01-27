@@ -16,3 +16,4 @@ Before venturing into the world of analytics, I spent 6 years in the auditing an
 
 ## About this blog
 This blog is dedicated to showcase my assignments and project work relating to the Visual Analytics and Applications course (ISSS608) at Singapore Management University.
+
