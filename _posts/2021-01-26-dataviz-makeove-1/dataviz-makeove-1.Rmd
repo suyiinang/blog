@@ -4,7 +4,7 @@ description: |
   Making over a chart from the Singapore Labour Force (2019) report.
 preview: images/fig16.png
 author:
-  - name: Su Yiin Ang
+  - name: Ang Su Yiin
     url: https://public.tableau.com/profile/suyiinang
 date: 01-26-2021
 categories:
