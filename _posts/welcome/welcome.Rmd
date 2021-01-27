@@ -1,7 +1,7 @@
 ---
-title: "Welcome to my visual analytics blog"
+title: "Welcome to my visual analytics journal"
 description: |
-  Welcome to my analytics journey. Follow me on my journey to discover the wonders of visual analytics.
+  Welcome to my visual analytics journal Follow me on my journey to discover the wonders of visual analytics.
 author:
   - name: Ang Su Yiin 
     url: https://public.tableau.com/profile/suyiinang#!/

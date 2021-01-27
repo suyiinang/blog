@@ -1,5 +1,5 @@
 ---
-title: "Visual Analytics Blog"
+title: "Visual Analytics Journal"
 site: distill::distill_website
 listing: posts
 ---

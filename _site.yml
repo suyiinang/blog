@@ -1,7 +1,7 @@
 name: "blog"
-title: "My visual journey"
+title: "My DataViz Journal"
 description: |
-  Visual Analytics Blog
+  Details my pursuit for beautiful and meaningful charts.
 output_dir: "_site"
 collections:
   posts: 

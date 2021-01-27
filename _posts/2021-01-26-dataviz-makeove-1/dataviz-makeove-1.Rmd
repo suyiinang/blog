@@ -1,7 +1,7 @@
 ---
 title: "DataViz Makeover #1"
 description: |
-  A dataviz makeover of a Singapore's labour force chart.
+  Making over a chart from the Singapore Labour Force (2019) report.
 preview: images/fig16.png
 author:
   - name: Su Yiin Ang
@@ -12,7 +12,8 @@ categories:
 output:
   distill::distill_article:
     self_contained: false
-    toc: yes
+    toc: true
+    toc_float: true
 ---
 
 
@@ -28,30 +29,34 @@ For my first DataViz makeover, I have used data from the [Ministry of Manpower o
 *Figure 1: Chart 6 of Labour Force in Singapore 2019 report (page 22)*
 
 Before making over the selected visualisation, it is important to have a clear understanding of the context of the visualisation and its key takeaway which is depend on:  
-- **Who**: Individuals, businesses and primarily policy-makers to help improve the well-being and optimisation of workers.  
+- **Who**: [Individuals, businesses and primarily policy-makers, to help improve the well-being and optimisation of workers.](https://stats.mom.gov.sg/Pages/Labour-Force-In-Singapore-2019.aspx)  
 - **What**: Understanding the shift in Singapore’s labour force from the respective age bands over the past 10 years (2009 to 2019).  
 -	**How**: Showing that labour force distribution and participation rate of older workers (55 and over) has increased, which resulted in the increase in labour force’s median age.
 
 ## 2) Critiques and suggestions for current visualisation
 ### 2.1 Clarity
 
-
-S/N | Critiques                     | Comments
-----|-------------------------------|---------------------
-1   | **Chart title is not precise** – The title *“Resident labour force by age”* does not prepare the reader for the main takeaway which is “the increase in median age of labour force” the chart refers to the distribution of the resident labour force by age and is accompanied by a rather convoluted commentary on labour force participation rate (LFPR) of the different age bands and share of resident’s labour force, making it difficult to grasp the main message quickly. | **Change title** to “The shift in Singapore’s labour force distribution and participation rate by age from 2009 to 2019”
-2   | **Figures per commentary and chart are inconsistent** - The commentary quoted percentages that are aggregates of several age bands (i.e 25 to 54), while the chart uses 5-year intervals (i.e 25 to 29, 30 to 34, etc). This inconsistency hinders cross referencing between commentary and table. | Keep both **consistent**. Age bands must match for both chart and commentary.
-3   | **Axis title not properly labelled** – ‘Per Cent’ was labelled below the chart title, but not on the y axis. Age band not labelled on x-axis. Not labelling leaves room for misinterpretation and/or requires reader’s extra time to peruse the chart, all of which draws attention away from the main message. | It would be clearer and more quickly understood to the reader if both the **y-axis** and **figures** were **appropriately labelled**.
+::: l-page
+|S/N | Critiques                     | Comments             |
+|----|-------------------------------|----------------------|
+|1   | **Chart title is not precise** – The title *“Resident labour force by age”* does not prepare the reader for the main takeaway which is “the increase in median age of labour force” the chart refers to the distribution of the resident labour force by age and is accompanied by a rather convoluted commentary on labour force participation rate (LFPR) of the different age bands and share of resident’s labour force, making it difficult to grasp the main message quickly. | **Change title** to “The shift in Singapore’s labour force distribution and participation rate by age from 2009 to 2019”. |
+|2   | **Figures per commentary and chart are inconsistent** - The commentary quoted percentages that are aggregates of several age bands (i.e 25 to 54), while the chart uses 5-year intervals (i.e 25 to 29, 30 to 34, etc). This inconsistency hinders cross referencing between commentary and table. | Keep both **consistent**. Age bands must match for both chart and commentary. |
+|3   | **Axis title not properly labelled** – ‘Per Cent’ was labelled below the chart title, but not on the y axis. Age band not labelled on x-axis. Not labelling leaves room for misinterpretation and/or requires reader’s extra time to peruse the chart, all of which draws attention away from the main message. | It would be clearer and more quickly understood to the reader if both the **y-axis** and **figures** were **appropriately labelled**. |
+:::
 
 ### 2.2 Aesthetics
-S/N | Critiques                     | Comments
-----|-------------------------------|------------
-4   | **Chart title’s font size and location** - title of the chart should precede the commentary so that the reader is mentally prepared going into the more detailed commentary. Font size of title should be bigger than the commentary.| Move title of chart above and commentary below. 
-5   | **Commentary is too long** – the reader has to read through the whole paragraph to understand the main idea of the visualisation. | **Shorten commentary** to only the key message. Highlight by using **colour, bold or underline** key takeaways.
-6   | **Line chart may not be the most appropriate chart** – From the chart, the reader can clearly see that there is an increase in percentage for those 55+, but the reader has to cross reference to the table below to get an idea of how much it declined by. Furthermore, it is difficult to see which age band increased/decreased the most. | Given that the main message is to highlight the significant increase and decrease in share of labour by the respective age groups, leading to the increase in median age, a more appropriate graph would be a **stacked bar chart**.
-7   | **Figures in table are redundant**- It is redundant to include all the figures in the table – why make the chart in the first place if one need to reads all the numbers in the table to understanding it. |	Remove table – only **showcase key figures** to drive the main idea.
-8   | **Median age label clutters**- too long, distracting and clutters the graph. | Remove median age label. Since there are only two text, **include these figures into the commentary**.
-9   | **The heavy shading of the table competes for attention.** The table is meant to support the main message hence shading should be kept minimal.Furthermore, the monotone shading does not add value (unlike a heat map which showcases the increase/decrease trends in values). | **Remove shading**. Colour should always be intentional - use shading only to highlight key figures.
-10  | **Different alignments for source and notes** make the whole visualisation look disorganised. |	**Align** these two either to the left or right to establish sense of unity and cohesion.
+
+::: l-page
+|S/N | Critiques                     | Comments             |
+|----|-------------------------------|----------------------|
+|4   | **Chart title’s font size and location** - title of the chart should precede the commentary so that the reader is mentally prepared going into the more detailed commentary. Font size of title should be bigger than the commentary.| Move title of chart above and commentary below. |
+|5   | **Commentary is too long** – the reader has to read through the whole paragraph to understand the main idea of the visualisation. | **Shorten commentary** to only the key message. Highlight by using **colour, bold or underline** key takeaways. |
+|6   | **Line chart may not be the most appropriate chart** – From the chart, the reader can clearly see that there is an increase in percentage for those 55+, but the reader has to cross reference to the table below to get an idea of how much it declined by. Furthermore, it is difficult to see which age band increased/decreased the most. | Given that the main message is to highlight the significant increase and decrease in share of labour by the respective age groups, leading to the increase in median age, a more appropriate graph would be a **stacked bar chart**. |
+|7   | **Figures in table are redundant**- It is redundant to include all the figures in the table – why make the chart in the first place if one need to reads all the numbers in the table to understanding it. |	Remove table – only **showcase key figures** to drive the main idea.|
+|8   | **Median age label clutters**- too long, distracting and clutters the graph. | Remove median age label. Since there are only two text, **include these figures into the commentary**. |
+|9   | **The heavy shading of the table competes for attention.** The table is meant to support the main message hence shading should be kept minimal.Furthermore, the monotone shading does not add value (unlike a heat map which showcases the increase/decrease trends in values). | **Remove shading**. Colour should always be intentional - use shading only to highlight key figures. |
+|10  | **Different alignments for source and notes** make the whole visualisation look disorganised. |	**Align** these two either to the left or right to establish sense of unity and cohesion. |
+:::
 
 ## 3) Proposed Design
 ### 3.1 Sketch
@@ -79,7 +84,7 @@ from the [Ministry of Manpower of Singapore](https://stats.mom.gov.sg/Pages/Labo
 
 1) Remove unnecessary columns  
 Delete columns A, B, D, F, H, J, L, M, N, P, R, T, V, X, Z.  
-![:scale 60%](images/fig3.png)
+![:scale 50%](images/fig3.png)
 *Figure 3: Remove unnecessary columns*
 
 2) Remove empty rows  
@@ -209,7 +214,7 @@ Remove y-axis	Right click > Hide field labels for row.
 Using Format Lines panel.
 
 7) Add annotation  
-Drag mouse pointer and select the 2009 and 2019 bars > right click > Mark labels > Always show
+Drag mouse pointer and select the 2009 and 2019 bars > right click > Mark labels > Always show.
 
 8) Add title  
 Add title : Singapore's labour force gets older.The median age has increased from 41 in 2009 to 44 in 2019 due to the gradual shift towards older workers (55-64 and 65+ band) over the past 10 years.
@@ -224,7 +229,7 @@ Using Objects > Text > drag to bottom of title and add:
 “Although labour force participation rate (LPFR) across all age groups has increased from 2009 to 2019, the significant increase in older workers' (55-64 and 65+) participation has shifted the labour force's distribution towards an older labour force. This shift is due to multitude of reasons, namely aging population due to low birth rates, extended retirement age, longer average lifespan, etc.” 
 
 3) Add sheets  
-Add sheet “LFPR%” to the left and “Share of LF” to the right. Retain one age band banner, place it at the bottom of “share of LF”.
+Add sheet “LFPR%” to the left and “Share of LF” to the right. Retain one age band legend, place it at the bottom of “share of LF”.
 
 4) Add source  
 Using Objects > Text > drag to bottom left and add :  
