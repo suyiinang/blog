@@ -3,13 +3,13 @@ title: "Su Yiin Ang"
 image: "asy.jpg"
 links:
   - label: LinkedIn
-    url: "https://linkedin.com/"
-  - label: Twitter
-    url: "https://twitter.com/"
-  - label: GitHub
-    url: "https://github.com/"
+    url: "https://www.linkedin.com/in/suyiinang/"
+  - label: Tableau
+    url: "https://public.tableau.com/profile/suyiinang#!/"
+site: distill::distill_website
 output:
   postcards::trestles
+  
 ---
 
 ## About me 
