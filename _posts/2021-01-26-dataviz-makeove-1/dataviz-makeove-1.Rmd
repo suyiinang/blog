@@ -28,6 +28,11 @@ For my first DataViz makeover, I have used data from the [Ministry of Manpower o
 ![:scale 60%](images/fig1.png)
 *Figure 1: Chart 6 of Labour Force in Singapore 2019 report (page 22)*
 
+Notes:  
+- LFPR refers to the proportion of working-age population that engages actively in the labour market, either by working or looking for work. Source: [MOM](https://stats.mom.gov.sg/Pages/Labour-Force-Summary-Table.aspx)  
+- Share of residents refers to the age distribution of the labour force.
+
+
 Before making over the selected visualisation, it is important to have a clear understanding of the context of the visualisation and its key takeaways which are dependent on:  
 - **Who**: [Individuals, businesses and primarily policy-makers, to help improve the well-being and optimisation of workers.](https://stats.mom.gov.sg/Pages/Labour-Force-In-Singapore-2019.aspx)  
 - **What**: Understanding the shift in Singapore’s labour force from the respective age bands over the past 10 years (2009 to 2019).  
@@ -40,8 +45,8 @@ Before making over the selected visualisation, it is important to have a clear u
 |S/N | Critiques                     | Comments             |
 |----|-------------------------------|----------------------|
 |1   | **Chart title is not precise** – The title *“Resident labour force by age”* does not drive the message of “the increase in median age of labour force”. The chart refers to the share of labour force and is accompanied by a rather convoluted commentary on labour force participation rate (LFPR) of the different age bands and share of resident’s labour force, making it difficult to grasp the main message quickly. | **Change title** to “The shift in Singapore’s labour force distribution and participation rate by age from 2009 to 2019”. |
-|2   | **Figures per commentary and chart are inconsistent** - The commentary quoted percentages that are aggregates of several age bands (i.e 25 to 54), while the chart uses 5-year intervals (i.e 25 to 29, 30 to 34, etc). This inconsistency hinders cross referencing between commentary and table. | Keep both **consistent**. Age bands must match for both chart and commentary. |
-|3   | **Axis title not properly labeled** – ‘Share of labour force' was not labeled on the y axis. This leaves room for misinterpretation and/or requires reader’s extra time to peruse the chart, all of which draws attention away from the main message. | It would be clearer and more quickly understood to the reader if both the **y-axis** was **appropriately labeled**. |
+|2   | **Figures per commentary and chart are inconsistent** - The commentary quoted percentages that are aggregates of several age bands (i.e 25 to 54), while the chart uses 5-year intervals (i.e 25 to 29, 30 to 34, etc). This inconsistency hinders cross referencing between the commentary and the table. | Keep both **consistent**. Age bands must match for both chart and commentary. |
+|3   | **Axis title not properly labeled** – ‘Share of labour force' was not labeled on the y axis. This leaves room for misinterpretation and/or requires the reader’s extra time to peruse the chart, all of which draws attention away from the main message. | It would be clearer and more quickly understood to the reader if both the **y-axis** was **appropriately labeled**. |
 :::
 
 ### 2.2 Aesthetics
@@ -97,8 +102,8 @@ Rename header from “Age (Years)” to “Age band”.
 ![:scale 60%](images/fig5.png)
 *Figure 5: Rename header*
 
-4) Delete unnecessary tabs
-Remove tabs T5_F and T5_M.
+4) Delete unnecessary tabs  
+Remove tabs T5_F and T5_M.  
 Save and rename file as T5_T_clean.
 
 **Data: Table 7 - Labour force**  
@@ -241,7 +246,7 @@ The raw data: https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx”
 Add text to bottom left corner and add text : “DataViz Makeover #1 by @suyiinang” align left.
 
 ## 5) Final visualisation
-### 5.1 Snapboard of dashboard  
+### 5.1 Snapshot of dashboard  
 ```{r, layout="l-page"}
 knitr::include_graphics("images/fig16.png")
 ```
@@ -249,10 +254,10 @@ Figure 17: Dashboard
 *Full visualisation available at [Tableau Public](https://public.tableau.com/profile/suyiinang#!/vizhome/DataViz_16116824631860/Dashboard1)*
 
 ### 5.2 Main observations
-- Labour force participation rate (LFPR) has increased across all age bands. While younger workers (15 – 24 and 25 – 54) experienced a slight increase of 3.6ppt and 3.3ppt since 2009, the increase in older workers’ (55-64 and 65) participation was **triple** that of younger workers, increasing by 9ppt and 11.6ppt since 2009.
-- Participation rate of 15 -24 workers tend to fluctuate more than the other age bands.
+- Labour force participation rate (LFPR) has increased across all age bands since 2009. While younger workers (15 – 24 and 25 – 54) experienced a slight increase of 3.6ppt and 3.3ppt since 2009, the increase in older workers’ (55-64 and 65) participation was **triple** that of younger workers, increasing by 9ppt and 11.6ppt since 2009.
+- Participation rate of 15 - 24 workers tended to fluctuate more than the other age bands.
 - LFPR for older workers (55-64 and 65) seemed to have experienced a steep increase in 2011.
-- The shift in labour force’s distribution is mainly due to shift from the 25-54 age band to the 55-64 and 65+ age band. While the share of labour force for the 15 -24 age band was quite stable (8-9%) across the 10 years.
+- The shift in labour force’s distribution was mainly due to shift from the 25-54 age band to the 55-64 and 65+ age band. While the share of labour force for the 15 -24 age band was quite stable (share of 8-9%) across the 10 years.
 - Given that the financial crisis happened in 2008/2009, 2009 may not give the best numbers to use as a base comparison as is it historically lower compared to other years. As such, the increase in participation of old workers may be due to workers re-joining the workforce as the economy recovers, of which leads to the shift in the share of labour force towards older workers.
 
 

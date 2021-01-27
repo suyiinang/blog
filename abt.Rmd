@@ -4,14 +4,18 @@ image: "asy.jpg"
 links:
   - label: LinkedIn
     url: "https://linkedin.com/"
+  - label: Twitter
+    url: "https://twitter.com/"
+  - label: GitHub
+    url: "https://github.com/"
 output:
   postcards::trestles
 ---
 
+## About me 
 I am a post-graduate student pursuing a [Master of IT in Business (Analytics)](https://scis.smu.edu.sg/master-it-business) at Singapore Management University.
 Before venturing into the world of analytics, I spent 6 years in the auditing and financial due diligence department at PwC Singapore. 
 
 
 ## About this blog
 This blog is dedicated to showcase my assignments and project work relating to the Visual Analytics and Applications course (ISSS608) at Singapore Management University.
-
