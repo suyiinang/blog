@@ -1,0 +1,22 @@
+---
+title: "I have moved"
+description: |
+  This site is no longer being updated. Please visit new site.
+author:
+  - name: Su Yiin Ang
+    url: https://public.tableau.com/profile/suyiinang
+date: 02-07-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Please visit my new site: [https://suyiinang.netlify.app/](https://suyiinang.netlify.app/)
+
+
+
