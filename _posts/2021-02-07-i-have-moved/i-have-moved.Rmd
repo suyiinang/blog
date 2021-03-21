@@ -1,7 +1,7 @@
 ---
 title: "I have moved"
 description: |
-  This site is no longer being updated. Please visit new site.
+  Please visit new site - https://suyiinang.netlify.app/
 author:
   - name: Su Yiin Ang
     url: https://public.tableau.com/profile/suyiinang
