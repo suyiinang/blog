@@ -9,7 +9,7 @@ date: 04-11-2021
 categories:
   - Exploratory
 output:
-  html_document:
+  distill::distill_article:
     self_contained: false
     toc: true
     toc_float: true
