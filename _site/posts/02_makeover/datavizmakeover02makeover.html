@@ -1,0 +1,2270 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Dataviz_makeover2</title>
+
+  <meta property="description" itemprop="description" content="A short description of the post."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-04-10"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-04-10"/>
+  <meta name="article:author" content="Su Yiin Ang"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Dataviz_makeover2"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="A short description of the post."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Dataviz_makeover2"/>
+  <meta property="twitter:description" content="A short description of the post."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Dataviz_makeover2"]},{"type":"character","attributes":{},"value":["A short description of the post.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Su Yiin Ang"]},{"type":"character","attributes":{},"value":["https://public.tableau.com/profile/suyiinang"]}]}]},{"type":"character","attributes":{},"value":["04-10-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["images/count.png","images/count2.PNG","images/count3.png","images/count4.png","images/effects.png","images/employment.PNG","images/employment2.png","images/females.png","images/fig1.png","images/fig1_1.PNG","images/fig10.PNG","images/fig19.PNG","images/fig2.PNG","images/fig20.gif","images/fig21.gif","images/fig3.gif","images/fig3.PNG","images/fig3_1.PNG","images/fig4.png","images/fig5.PNG","images/fig6.PNG","images/fig7.PNG","images/fig8.PNG","images/filter.png","images/french.png","images/hh.PNG","images/i1.PNG","images/i2.PNG","images/i85.png","images/ig10.PNG","images/ig11.PNG","images/ig12.PNG","images/ig13.PNG","images/ig14.PNG","images/ig15.png","images/ig16.png","images/ig17.PNG","images/ig18.png","images/ig19.png","images/ig22.PNG","images/ig23.png","images/ig24.png","images/ig25.png","images/ig26.png","images/ig27.png","images/ig28.png","images/ig29.png","images/ig30.gif","images/ig31.png","images/ig33.png","images/ig34.PNG","images/ig35.png","images/ig36.PNG","images/ig37.png","images/ig38.png","images/ig39.png","images/ig40.png","images/ig41.png","images/ig42.gif","images/ig43.gif","images/ig44.png","images/ig45.png","images/ig46.png","images/ig47.png","images/ig48.PNG","images/ig49.PNG","images/ig50.gif","images/ig51.gif","images/ig51.png","images/ig52.gif","images/ig53.png","images/ig54.png","images/ig55.gif","images/ig56.png","images/ig57.PNG","images/ig58.gif","images/ig59.png","images/ig60.png","images/ig61.png","images/ig62.png","images/ig63.png","images/ig64.png","images/ig65.png","images/ig66.PNG","images/ig67.PNG","images/ig68.png","images/ig69.png","images/ig7.png","images/ig70.png","images/ig71.gif","images/ig72.png","images/ig73.png","images/ig74.png","images/ig75.png","images/ig76.PNG","images/ig77.png","images/ig78.PNG","images/ig79.png","images/ig8.PNG","images/ig80.png","images/ig81.PNG","images/ig82.png","images/ig83.PNG","images/ig84.png","images/ig85.png","images/ig9.PNG","images/israel.PNG","images/load.png","images/neu.PNG","images/neu1.png","images/neutral.PNG","images/neutral2.PNG","images/pointer.PNG","images/pointer1.png","images/pointer2.png","images/pointer3.png","images/qn.PNG","images/quadrant.PNG","images/rename.png","images/sentiments.png","images/survey.png","images/view.png"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="datavizmakeover02makeover_files/header-attrs-2.7/header-attrs.js"></script>
+  <script src="datavizmakeover02makeover_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="datavizmakeover02makeover_files/popper-2.6.0/popper.min.js"></script>
+  <link href="datavizmakeover02makeover_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="datavizmakeover02makeover_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="datavizmakeover02makeover_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="datavizmakeover02makeover_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="datavizmakeover02makeover_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="datavizmakeover02makeover_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="datavizmakeover02makeover_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Dataviz_makeover2","description":"A short description of the post.","authors":[{"author":"Su Yiin Ang","authorURL":"https://public.tableau.com/profile/suyiinang","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-04-10T00:00:00.000+08:00","citationText":"Ang, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Dataviz_makeover2</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>A short description of the post.</p></p>
+</div>
+
+<div class="d-byline">
+  Su Yiin Ang <a href="https://public.tableau.com/profile/suyiinang" class="uri">https://public.tableau.com/profile/suyiinang</a> 
+  
+<br/>04-10-2021
+</div>
+
+<div class="d-article">
+<h1 id="understanding-the-willingness-of-public-for-covid-19-vaccination-based-on-survey-data.">Understanding the willingness of public for Covid-19 vaccination based on survey data.</h1>
+<p><em>This was written as part of the requirements for the <a href="https://wiki.smu.edu.sg/2021t2isss608/Course_information">Visual Analytics module</a> for <a href="https://scis.smu.edu.sg/master-it-business">MITB</a>.</em></p>
+<hr />
+<h2 id="the-original-visualisation">1. The original visualisation</h2>
+<p>For this DataViz Makeover, I have used data from <a href="https://github.com/YouGov-Data/covid-19-tracker">Imperial College London YouGov Covid 19 Behaviour Tracker Data Hub</a>, which collects global insights on people’s behaviours in response to Covid-19.</p>
+<p><img src="images/fig1.png" /><br />
+<em>Figure 1</em></p>
+<p>Before making over the selected visualisation, it is important to have a clear understanding of the <a href="https://learning.oreilly.com/library/view/communicating-data-with/9781449372019/ch01.html">context of the visualisation</a> and its key takeaways which are dependent on:<br />
+- <strong>Who</strong>: <a href="https://github.com/YouGov-Data/covid-19-tracker">Public health bodies</a><br />
+- <strong>What</strong>: To understand the willingness of public for Covid-19 vaccination<br />
+- <strong>Why</strong>: To show percentage views of positive, negative and neutral along with breakdown of demographic for <a href="https://www.health.gov.au/ministers/the-hon-greg-hunt-mp/media/australias-covid-19-vaccine-information-campaign-begins">public health to drive initiatives / campaigns to encourage vaccinations</a> for those who are not positive about vaccination.</p>
+<h2 id="critiques-and-suggestions-for-current-visualisation">2. Critiques and suggestions for current visualisation</h2>
+<p>My critique will be based on Ben Jones data visualisation’s <a href="https://dataremixed.com/2012/05/data-visualization-clarity-or-aesthetics/">four quadrants of clarity and aesthetic</a>.</p>
+<p><img src="images/fig1_1.PNG" /><br />
+<em>Figure 2</em></p>
+<p>Ben Jones defined <strong>clarity</strong> as “Does it make sense” and <strong>aesthetics</strong> as “Does it look good”.</p>
+<p>Based on this concept with the 4 quadrants, I have classified this original visualisation to be in the III quadrant, see below for the explanation on my classification.</p>
+<h3 id="clarity">2.1 Clarity</h3>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 44%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>S/N</th>
+<th>Critiques</th>
+<th>Improvement points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>Titles are not helpful and has spelling error</strong> - no definition on “Pro-vaccine”. The writer does not explain the concept of pro-vaccine – Are they numbers of ‘strongly agrees’ only or include ‘agree’?</td>
+<td>Change title. Rank countries by using percentage of agrees (strongly agree and agree).</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><strong>The visualisation on the right is misleading</strong> – by showing only the “strongly agreed %” with no further explanation on selection basis. For example, in terms of ‘strongly agreed’ to vaccinate, the visualisation ranked France higher than Japan although France has a high number of people who strongly disagree, whilst large proportion of Japanese are ‘neutral’.</td>
+<td>Remove chart. Use statistical values to showcase survey results.</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>Legends not fully labeled</strong> – values from 2-4 are not labeled and may confuse the reader.</td>
+<td>Remove numbers and label legends: Strongly Agree, Agree, Neutral, Disagree, Strongly Disagree</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>What is the margin of error</strong> - Given that this data is a survey data (a sample size), the survey does not accurately represent the whole populations’ opinion due to probability distribution.</td>
+<td>Use statistical values and chart (i.e error bars) to show the margin of error for the survey results.</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><strong>No call outs to provide context</strong> - Since this is a static chart, call outs should be used to provide more context</td>
+<td>If static chart, include call outs, text or images to enhance the chart. If interactive, include tooltip details and ability to filter.</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><strong>No source data included</strong></td>
+<td>Included source data at bottom of visualisation.</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td><strong>100% stacked bar chart may not be the most appropriate chart</strong> - As there are 16 countries and 5 opinions, which is alot of variables, it is difficult to gauge agree / disagree / neutral trends using stacked bar chart.</td>
+<td>Given that the data is a survey data and that the main idea is to analyse trends for percentage opinions of agrees, disagrees and neutral, the likert (divergent) chart would be more appropriate.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="aesthetics">2.2 Aesthetics</h3>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 54%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>S/N</th>
+<th>Critiques</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>8</td>
+<td><strong>Colour palette</strong> used is glaring and not meaningful as it does not enhance the conveyance of information.</td>
+<td>Use grey for neutral, reddish colours for disagree and bluish colours for agree. Or the “traffic light” colours of Red (Disagree), Yellow (Neutral) and Green(Agree).</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td><strong>Redundant chart</strong> – The right chart is a subset of the left chart.</td>
+<td>If the visualiser wants to highlight the “% strongly agree” field, just tone down the colours of the other fields and use a striking colour for the “% strongly agree” field. Alternatively, a gradual intensity of colour to match the corresponding change in the intensity of the view.</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td><strong>Location of legends</strong> - there is a lot of whitespace / unused space below the legend</td>
+<td>Align legend horizontally below the chart.</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td><strong>Decimal points of axes are not consistent</strong> - one chart uses no decimal and another uses 1 decimal points. Formatting should be consistent throughout the visualisation.</td>
+<td>Use consistent formatting - 1 decimal point.</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td><strong>Country axis title is not necessary</strong> - Given that Country names are self-explanatory, the axis title can be removed.</td>
+<td>Remove country axis title.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="proposed-design">3. Proposed Design</h2>
+<h3 id="sketch">3.1 Sketch</h3>
+<p><img src="images/fig2.PNG" /><br />
+<em>Figure 3</em></p>
+<p>Notes:<br />
+- Use reddish for disagree, grey for neutral and blueish for agree.<br />
+- Margin of error to be calculated based on proportion rather than mean – want to know the proportion of respondents who are positive / willing to take the vaccine.<br />
+- Make chart interactive – toggle margin of error proportion by positive, negative and neutral; tooltip details, filter on click.</p>
+<h3 id="advantages-of-proposed-design">3.2 Advantages of Proposed Design</h3>
+<p><strong>1) Margin of error chart</strong><br />
+Readers will know the quantum of precision to expect for percentage of people agreeable, neutral and disagreeable to the vaccine.</p>
+<p><strong>2) Ranks countries using agreed opinions</strong><br />
+By using this method, all agreed opinions are taken into consideration when ranking countries, as opposed to using 1 opinion (strongly agree) as done in the original visualisation. Since there are only two outcomes in reality - vaccinate or do not vaccinate - public health would have an indication on the percentage of population who would opt to vaccinate.</p>
+<p><strong>3) Neutrals by the side</strong><br />
+Given that a large proportion of respondents voted neutral, we can observe the trend better with neutrals by the side rather than the usual divergent chart, of which neutrals tend to be between positive and negative.</p>
+<p><strong>4) Interactive charts</strong><br />
+Readers can toggle survey question, see demographic snapshots by country and see breakdown of opinions by demographic.</p>
+<p><strong>5) Labeled opinion legend</strong><br />
+Legends are labeled with proper text instead of numbers, making it immediately clear to the reader.</p>
+<p><strong>6) Meaningful colour palette</strong><br />
+Colours are consistent throughout both dashboards, colours are visually pleasing.</p>
+<h2 id="final-visualisation">4. Final visualisation</h2>
+<h3 id="dashboard">4.1 Dashboard</h3>
+<p>For the purpose of this exercise, I have included additional survey questions and demographic data compared to the original visualisation.</p>
+<p>The dashboards are interactive - demographic and country data changes according to selection.</p>
+<div id="viz1613681511134" class="tableauPlaceholder" style="position: relative">
+<noscript>
+<a href='https:&#47;&#47;suyiinang.netlify.app&#47;posts&#47;dataviz_makeover&#47;02_makeover&#47;'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;Dataviz2_16136813714570&#47;Dashboard&#47;1_rss.png' style='border: none' /></a>
+</noscript>
+<object class="tableauViz" style="display:none;">
+<param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Dataviz2_16136813714570&#47;Dashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;Dataviz2_16136813714570&#47;Dashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' />
+</object>
+</div>
+<pre><code>            &lt;script type=&#39;text/javascript&#39;&gt;                    var divElement = document.getElementById(&#39;viz1613681511134&#39;);                    var vizElement = divElement.getElementsByTagName(&#39;object&#39;)[0];                    if ( divElement.offsetWidth &gt; 800 ) { vizElement.style.width=&#39;100%&#39;;vizElement.style.height=(divElement.offsetWidth*0.75)+&#39;px&#39;;} else if ( divElement.offsetWidth &gt; 500 ) { vizElement.style.width=&#39;100%&#39;;vizElement.style.height=(divElement.offsetWidth*0.75)+&#39;px&#39;;} else { vizElement.style.width=&#39;100%&#39;;vizElement.style.height=&#39;2977px&#39;;}                     var scriptElement = document.createElement(&#39;script&#39;);                    scriptElement.src = &#39;https://public.tableau.com/javascripts/api/viz_v1.js&#39;;                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                &lt;/script&gt;</code></pre>
+<p>Due to limitation of webpage width, visualisation may appear compressed. Hence to enjoy the full experience of this visualisation, please view in Full Screen mode. This visualisation is also available on <a href="https://public.tableau.com/profile/suyiinang#!/vizhome/Dataviz2_16136788814200/Dashboard?publish=yes">Tableau Public</a>.</p>
+<h3 id="main-observations">4.2 Main observations</h3>
+<p><strong>1) The French are not at all positive about the Covid-19 vaccine</strong><br />
+<img src="images/french.png" /><br />
+<em>Figure 4</em><br />
+Although France has the <a href="https://www.channelnewsasia.com/news/world/france-reports-21-231-new-covid-19-cases-over-24-hours-14191674">7th highest death toll globally as of Feb-2021</a>, the French are not very positive to be vaccinated against Covid-19 with 52% of the respondents being negative about having the Covid-19 vaccination.<br />
+Those who are particularly negative about the vaccine are in the 30 to 39 age band. French women also tend to be more negative than men.</p>
+<p><strong>2) Females are less positive about the vaccine</strong> <img src="images/females.png" /><br />
+<em>Figure 5</em><br />
+Females are less positive about taking the vaccine should it be available within the week - on a global level only 45% of females are positive about taking the vaccine as compared to 52% of males. Furthermore, the margin of error for females is narrower than that of males - indicating higher confidence levels in the produced result.<br />
+The French females are particularly hesitant with 60.3% of the respondents voted against taking the vaccine.<br />
+These vaccine hesitancy by women may be linked to <a href="https://www.theguardian.com/society/2021/jan/31/there-is-a-lot-of-distrust-why-women-in-their-30s-are-hesitant-about-the-covid-vaccine">pregnancy as Covid-19 vaccine trials were not conducted on pregnant women</a>.</p>
+<p><strong>3) Asian Countries - high proportion of neutral response</strong> <img src="images/neu1.png" /><br />
+<em>Figure 6</em><br />
+The only 3 Asian countries (Singapore, Japan and South Korea) in this survey lead the proportion of neutrals with a relatively wide margin of error of 4-5 percentage points.<br />
+Diving deeper into the age bands by respective countries, neutrality appears to be quite consistent across all age bands, except for the older respondents 80 years old and above who are either more receptive or neutral to being vaccinated except for the Koreans 90 - 99 year olds where 100% were negative.</p>
+<p><strong>4) More than half of the respondents (those in the positive and neutral group) are worried about the potential side effects of Covid-19 vaccine.</strong> <img src="images/effects.png" /><br />
+<em>Figure 7</em><br />
+Although France was the least positive about the Covid-19 vaccine (as see in observation 1), the 3 Asian countries (S.Korea, Singapore and Japan) are the most worried about the side effects of the Covid-19 vaccine. Further investigation reveals that the younger respondents (those below 59 years old) tend to worry more about the side effects of Covid-19 vaccine compared to older respondents 60 years old and above. And again we see that females tend to be more worried than males.</p>
+<p><strong>5) Respondents are more positive about taking the vaccine in the future (in a year).</strong> <img src="images/sentiments.png" /><br />
+Respondents across all countries are more receptive (those in positive group) to taking the Covid-19 vaccine in a year. Hence it would be interesting to observe how sentiment changes across time.</p>
+<h2 id="data-visualisation-steps">5. Data visualisation steps</h2>
+<p>Of the 30 files, 14 files were excluded as the “vac_1” field was not available, i.e the vaccine survey was not conducted in these countries. Please see full list of countries included and cleaning methods below:</p>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>S/N</th>
+<th>Country</th>
+<th>Included?</th>
+<th>Pre-Processing in excel</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Australia</td>
+<td>Yes</td>
+<td>No</td>
+<td>n.a</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Canada</td>
+<td>Yes</td>
+<td>No</td>
+<td>n.a</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Denmark</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Employment details split into 7 columns</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Finland</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Employment details split into 7 columns</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>France</td>
+<td>Yes</td>
+<td>No</td>
+<td>n.a</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Germany</td>
+<td>Yes</td>
+<td>No</td>
+<td>n.a</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Israel</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Values on household_size, household_children and employment_status were missing</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Italy</td>
+<td>Yes</td>
+<td>No</td>
+<td>n.a</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Japan</td>
+<td>Yes</td>
+<td>No</td>
+<td>n.a</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Netherlands</td>
+<td>Yes</td>
+<td>No</td>
+<td>n.a</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Norway</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Employment details split into 7 columns</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Singapore</td>
+<td>Yes</td>
+<td>No</td>
+<td>n.a</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>south-korea</td>
+<td>Yes</td>
+<td>No</td>
+<td>n.a</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Spain</td>
+<td>Yes</td>
+<td>No</td>
+<td>n.a</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>sweden</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Employment details split into 7 columns</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>united-kingdom</td>
+<td>Yes</td>
+<td>No</td>
+<td>n.a</td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-cleaning-and-preparation">5.1 Data Cleaning and Preparation</h3>
+<p><strong>Data cleaning with Excel</strong></p>
+<p><strong>1) Denmark, Finland, Norway, Sweden</strong><br />
+Employment status were split into 7 columns, see figure below.<br />
+<img src="images/fig3.PNG" /><br />
+<em>Figure 8</em></p>
+<p>As such, the following Excel formula was used to combined the 7 columns to get field “employment_status”.<br />
+<img src="images/fig3_1.PNG" /><br />
+<em>Figure 9</em></p>
+<p><strong>2) Israel</strong><br />
+Values for household_size, household_children and employment_status were missing. We have created 3 new columns and included “NA” values for these field.<br />
+<img src="images/israel.PNG" /><br />
+<em>Figure 10</em></p>
+<p><strong>Extraction with R</strong><br />
+The following script was used to<br />
+1) extract selected 11 columns - age, gender, household size, household children, employment status, vac 1, vac2_1, vac2_2, vac2_3, vac2_6 and vac_3.<br />
+2) add new column with country name<br />
+3) merge all 16 files into 1</p>
+<pre><code>library(dplyr)
+library(tidyr)
+
+#extract these columns only
+header = c(&quot;age&quot;,&quot;gender&quot;, &quot;household_size&quot;, &quot;household_children&quot;, &quot;employment_status&quot; ,&quot;vac_1&quot;, &quot;vac2_1&quot;, &quot;vac2_2&quot;, &quot;vac2_3&quot;,&quot;vac2_6&quot;, &quot;vac_3&quot;) 
+
+#create function to extract selected columns
+clean_files &lt;- function(file){
+  df &lt;- read.csv(file)
+  sub_df &lt;- subset(df, select = header)
+  c_df &lt;- cbind(sub_df, country = file)
+  clean_df &lt;- c_df %&gt;% filter(c_df$vac_1 != &quot; &quot;)
+}
+
+#get list of files
+cs_files &lt;- dir(&quot;./data&quot;) 
+my_cs_files &lt;- paste0(&quot;./data/&quot;,cs_files)
+
+my_cs_data &lt;- NULL
+for (file in my_cs_files) {
+  temp &lt;- clean_files(file)  
+  temp$country &lt;- sub(&quot;.csv&quot;, &quot;&quot;, file) 
+  my_cs_data &lt;- rbind(my_cs_data, temp) 
+}
+
+#remove ./data/ from country column
+my_cs_data &lt;- my_cs_data %&gt;% 
+  dplyr::mutate(country = 
+                  stringr::str_replace(country, 
+                                       pattern = &quot;./data/&quot; , 
+                                       replacement = &quot;&quot;)) 
+                                       
+#check number of files - ensure that there are 16 files
+my_cs_data %&gt;% 
+  dplyr::distinct(country) %&gt;% 
+  base::nrow()
+
+write.csv(my_cs_data, file = &#39;clean/clean_countries.csv&#39;) 
+
+</code></pre>
+<p><strong>Data Cleaning with Excel</strong><br />
+1) Employment status field<br />
+Upon inspection of the data, I observed that the employment data had a mix of strings and numeric data.<br />
+<img src="images/employment.png" /><br />
+<em>Figure 11</em><br />
+Hence I have replaced the numbers to strings according to the codebook provided by <a href="https://github.com/YouGov-Data/covid-19-tracker">YouGov</a>:<br />
+| Numeric | Changed to | | ——- | ——————– | | 1 | Full time employment | | 2 | Part time employment | | 3 | Full time student | | 4 | Retired | | 5 | Unemployed | | 6 | Not working | | 7 | Other |</p>
+<p>I used the excel Find and Replace function to replace the numeric figures. <img src="images/employment2.png" /><br />
+<em>Figure 12</em></p>
+<ol start="2" type="1">
+<li>Survey questions: Vac fields (6 total)<br />
+Similarly to ‘employment status’ above, I have replaced the figures to the following:<br />
+| Original | Changed to | | ———————|————— | | 1 - Strongly agree | Strongly agree | | 2 | Agree | | 3 | Neutral | | 4 | Disagree | | 5 â€“ Strongly disagree | Strongly disagree |</li>
+</ol>
+<p>I used the excel Find and Replace function for replacement. <img src="images/survey.png" /><br />
+<em>Figure 13</em></p>
+<p>Save excel file as <strong>clean_countries v2</strong>.</p>
+<p>My data is now clean and ready to be loaded into Tableau.</p>
+<p><strong>Data Preparation with Tableau</strong><br />
+<strong>1) Data Source Tab</strong><br />
+i) Load file<br />
+On the landing page of Tableau, under Connect &gt; To a File &gt; More. And select the “clean_countries v2” file.<br />
+<img src="images/load.png" /><br />
+<em>Figure 14</em></p>
+<ol start="2" type="i">
+<li><p>Pivot and rename survey questions.<br />
+Pivot data <img src="images/fig3.gif" /><br />
+<em>Figure 15</em></p></li>
+<li><p>Rename headers to “Questions” and “Opinion”<br />
+<img src="images/rename.png" /><br />
+<em>Figure 16</em></p></li>
+</ol>
+<p><strong>2) Employment status</strong><br />
+Group “NA”, “Not working” and “Other” together as “Others”<br />
+<img src="images/fig4.png" /><br />
+<em>Figure 17</em></p>
+<p><strong>3) Age groups</strong><br />
+Group ages into 8 bands :<br />
+- 18 to 29 - 30 to 39 - 40 to 49 - 50 to 59 - 60 to 69 - 70 to 79 - 80 to 89 - 90 to 99 <img src="images/fig5.PNG" /><br />
+<em>Figure 18</em></p>
+<p><strong>4) Household children</strong><br />
+There were some responses that were not in accordance to the codebook. As such, for numeric values that were not within the codebook, I have assumed that the figure indicates number of children.<br />
+Group number of children into 3 bands:<br />
+| Values | Group to | | ———————|————— | | Null | NA | | 1,0 | No Kids | | 2,3,4,5,6,7, 8 | Kids |</p>
+<p><img src="images/fig6.PNG" /><br />
+<em>Figure 19</em></p>
+<p><strong>5) Household size</strong><br />
+Group households into 4 bands:<br />
+| Values | Group to | | ———————|————— | | Null | NA | | 1 | Single | | 2 | Couple | | 3,4,5,6,7,8 | Family |</p>
+<p><img src="images/fig7.PNG" /><br />
+<em>Figure 20</em></p>
+<p><strong>6) Survey</strong><br />
+Apply the following Aliases<br />
+<img src="images/fig8.PNG" /><br />
+<em>Figure 21</em></p>
+<ol start="7" type="1">
+<li>Score<br />
+<img src="images/fig10.PNG" /><br />
+<em>Figure 22</em></li>
+</ol>
+<p>Apply the following Aliases<br />
+<img src="images/fig19.PNG" /><br />
+<em>Figure 23</em></p>
+<h3 id="data-visualisation-steps-1">5.2 Data visualisation steps</h3>
+<h4 id="likert-scale">1) Likert Scale</h4>
+<ol type="1">
+<li>Create calculated fields<br />
+<img src="images/ig7.png" /><br />
+<em>Figure 24</em></li>
+</ol>
+<ol type="a">
+<li><p>Number of Records <img src="images/ig8.PNG" /><br />
+<em>Figure 25</em></p></li>
+<li><p>Count Positive <img src="images/ig9.PNG" /><br />
+<em>Figure 26</em></p></li>
+<li><p>Count Negative <img src="images/ig10.PNG" /><br />
+<em>Figure 27</em></p></li>
+<li><p>Count Neutral <img src="images/neutral.PNG" /><br />
+<em>Figure 28</em></p></li>
+<li><p>Positive Percentage <img src="images/ig11.PNG" /><br />
+<em>Figure 29</em></p></li>
+<li><p>Negative Percentage <img src="images/ig12.PNG" /><br />
+<em>Figure 30</em></p></li>
+<li><p>Neutral Percentage <img src="images/neu.PNG" /><br />
+<em>Figure 31</em></p></li>
+<li><p>% Neg <img src="images/ig13.PNG" /><br />
+<em>Figure 32</em></p></li>
+<li><p>% Pos <img src="images/ig14.PNG" /><br />
+<em>Figure 33</em></p></li>
+<li><p>% Neu <img src="images/neutral2.PNG" /><br />
+<em>Figure 34</em></p></li>
+</ol>
+<ol start="2" type="1">
+<li>Create chart<br />
+</li>
+</ol>
+<ol type="a">
+<li>Apply filter.<br />
+Drag [Score] and [Survey] to the Filter Panel.<br />
+<img src="images/ig18.png" /><br />
+<em>Figure 35</em></li>
+</ol>
+<p>For [Score], uncheck “NULL”.<br />
+<img src="images/ig16.png" /><br />
+<em>Figure 36</em></p>
+<p>For [Survey], check any survey question.<br />
+<img src="images/ig17.PNG" /><br />
+<em>Figure 37</em></p>
+<p>Show [Survey] filter &gt; change to single value (dropdown) <img src="images/filter.png" /><br />
+<em>Figure 38</em></p>
+<ol start="2" type="a">
+<li><p>Fill columns and rows.<br />
+Drag [Positive Percentage] and [Negative Percentage] to Columns.<br />
+Drag [Country] to Rows. Your chart show look like this below:<br />
+<img src="images/ig15.png" /></p></li>
+<li><p>Colour.<br />
+Drag [Score] to Colour. Your chart show look like this below:<br />
+<img src="images/ig19.png" /><br />
+<em>Figure 39</em></p></li>
+<li><p>Dual and Synchronize axis.<br />
+<img src="images/fig20.gif" /><br />
+<em>Figure 40</em></p></li>
+<li><p>Change chart type to bar.<br />
+<img src="images/fig21.gif" /><br />
+<em>Figure 41</em></p></li>
+<li><p>Remove [Measure Names] from Marks panel. <img src="images/ig22.PNG" /><br />
+<em>Figure 42</em></p></li>
+<li><p>Change bar colour.<br />
+<img src="images/ig23.png" /><br />
+<em>Figure 43</em></p></li>
+<li><p>Drag [Neutral Percentage] to Columns <img src="images/ig24.png" /><br />
+<em>Figure 44</em></p></li>
+</ol>
+<ol start="3" type="1">
+<li>Formatting<br />
+</li>
+</ol>
+<ol type="a">
+<li><p>Sort score within chart - I want to have the strong opinions to start at the 0 line.<br />
+<img src="images/ig25.png" /><br />
+<em>Figure 45</em></p></li>
+<li><p>Format x-axis. Hide “Negative Percentage” header. <img src="images/ig26.png" /><br />
+<em>Figure 46</em></p></li>
+</ol>
+<p>For [Positive Percentage] axis, fixed axis and remove title. <img src="images/ig27.png" /><br />
+<em>Figure 47</em></p>
+<p>For [Neutral Percentage] axis, fixed axis, remove title and adjust tick marks. I fixed the axis so that the bars are proportionately comparable to the positive/negative chart. <img src="images/ig28.png" /><br />
+<em>Figure 48</em></p>
+<p>For both [Positive Percentage] and [Neutral Percentage] - change axis format to percentage with 1 decimal point. <img src="images/ig29.png" /><br />
+<em>Figure 49</em></p>
+<ol start="3" type="a">
+<li><p>Remove gridlines <img src="images/ig30.gif" /><br />
+<em>Figure 50</em></p></li>
+<li><p>Sort Country <img src="images/ig31.png" /><br />
+<em>Figure 51</em></p></li>
+<li><p>Hide “Country” title since it is obvious. <img src="images/ig33.png" /><br />
+<em>Figure 52</em></p></li>
+<li><p>Change title to “Likert Scale”</p></li>
+</ol>
+<h4 id="margin-of-error-chart">2) Margin of error Chart</h4>
+<p>We want to calculate the margin of error by sentiment proportion (positive / negative / neutral).</p>
+<ol type="1">
+<li><p>Create parameter - Sentiment<br />
+<img src="images/ig34.PNG" /><br />
+<em>Figure 53</em><br />
+Right click on created sentiment parameter and show parameter. Parameter should appear on the right of the chart.</p></li>
+<li><p>Create calculated fields</p></li>
+</ol>
+<ol type="a">
+<li><p>Create Sentiment<br />
+<img src="images/ig36.PNG" /><br />
+<em>Figure 54</em></p></li>
+<li><p>Create z scores for 95% and 99% confidence interval<br />
+<img src="images/ig35.png" /><br />
+<em>Figure 55</em></p></li>
+<li><p>Prop_SE <img src="images/ig37.png" /><br />
+<em>Figure 56</em></p></li>
+<li><p>Prop_ME 95% and 99% <img src="images/ig38.png" /><br />
+<em>Figure 57</em></p></li>
+<li><p>Lower and upper 95% <img src="images/ig39.png" /><br />
+<em>Figure 58</em></p></li>
+<li><p>Lower and upper 99% <img src="images/ig40.png" /><br />
+<em>Figure 59</em></p></li>
+</ol>
+<ol start="3" type="1">
+<li><p>Apply filter Repeat step 2(a) of Likert scale chart above.</p></li>
+<li><p>Create chart<br />
+</p></li>
+</ol>
+<ol type="a">
+<li><p>Drag [Measure Values] to Columns and keep Upper and Lower 99% and 95%. Drag [Country] to Rows.<br />
+<img src="images/ig41.png" /><br />
+<em>Figure 60</em></p></li>
+<li><p>Change chart type to “Line”. Drag [Measure Names] to Mark &gt; Path and to Colour. Increase size of chart.<br />
+<img src="images/ig42.gif" /><br />
+<em>Figure 61</em></p></li>
+<li><p>Format colour so that the 99%s are one colour and the 95%s are another colour. Arrange the 99%s on top of the 95%s. <img src="images/ig43.gif" /><br />
+<em>Figure 62</em></p></li>
+<li><p>Add in sentiment to Columns. <img src="images/ig44.png" /><br />
+<em>Figure 63</em></p></li>
+</ol>
+<p>Change chart type to “Circle” and increase size. <img src="images/ig46.png" /><br />
+<em>Figure 64</em></p>
+<p>Format colour of Sentiment. And dual and synchronize axis as done for the likert chart previously.</p>
+<ol start="4" type="1">
+<li>Format chart<br />
+</li>
+</ol>
+<ol type="a">
+<li><p>Remove Sentiment header and Country header. <img src="images/ig47.png" /><br />
+<em>Figure 65</em></p></li>
+<li><p>Change x-axis title to “Percentage” and format scale to percentage at 1 decimal point.</p></li>
+<li><p>Remove gridlines as done for Likert chart above.</p></li>
+<li><p>Sort country by sentiment. <img src="images/ig48.PNG" /><br />
+<em>Figure 66</em></p></li>
+<li><p>Change chart title to “Error of Margin by Country” <img src="images/ig49.PNG" /><br />
+<em>Figure 68</em></p></li>
+</ol>
+<ol start="5" type="1">
+<li><p>Drag [Sentiment] (discrete) into rows.<br />
+<img src="images/ig65.png" /><br />
+<em>Figure 69</em></p></li>
+<li><p>Edit tooltip<br />
+</p></li>
+</ol>
+<ol type="a">
+<li><p>Under the Measure Values tooltip, replace text with the following: <img src="images/ig66.PNG" /><br />
+<em>Figure 70</em></p></li>
+<li><p>Under the Sentiment tooltip, replace text with the following: <img src="images/ig67.PNG" /><br />
+<em>Figure 71</em></p></li>
+</ol>
+<h4 id="demographic-breakdown">3) Demographic breakdown</h4>
+<ol type="1">
+<li>Age group - Likert Chart.<br />
+Duplicate Likert Scale chart. Drag [Age group] and drop it over [Country]. <img src="images/ig51.gif" /><br />
+<em>Figure 72</em></li>
+</ol>
+<p>Rename tab to “Age” and title to “Survey by Age bands”.</p>
+<ol start="2" type="1">
+<li><p>Employment status - Likert Chart.<br />
+Similar to step 1 above, duplicate Likert Scale chart. Drag [Employment status (group)] and drop it over [Country]. Rename tab to “Employment” and title to “Survey by Employment status”.</p></li>
+<li><p>Gender - 100% stacked bar chart.<br />
+Drag [Gender] to columns, [Number of records] to Rows and [Score] to Colour.<br />
+<img src="images/ig51.png" /><br />
+<em>Figure 73</em></p></li>
+</ol>
+<p>Right click [Number of records] &gt; Quick Table Calculations &gt; Percent of Total.<br />
+Right click [Number of records] &gt; Compute using &gt; Score<br />
+<img src="images/ig52.gif" /><br />
+<em>Figure 74</em></p>
+<p>Hide axis headers.<br />
+<img src="images/ig53.png" /><br />
+<em>Figure 75</em></p>
+<p>Remove gridlines.<br />
+<img src="images/ig54.png" /><br />
+<em>Figure 76</em></p>
+<p>Edit title to “Survey by gender”.</p>
+<ol start="4" type="1">
+<li>Household size Duplicate Gender chart. Drag [Household size (group)] and drop it over [Gender]. <img src="images/ig55.gif" /><br />
+<em>Figure 77</em></li>
+</ol>
+<p>Rename tab to “HH” and title to “Survey by household size”. Filter out null values from household size. <img src="images/ig56.png" /><br />
+<em>Figure 78</em></p>
+<p>Sort housheold by Single &gt; Couple &gt; Family. <img src="images/hh.PNG" /><br />
+<em>Figure 79</em></p>
+<ol start="5" type="1">
+<li>Household children Repeat step 4, replace [Gender] with [Household Children (group)]. Rename tab to “Kids” and title to “Survey by household children”. Filter out null values from household children.</li>
+</ol>
+<h4 id="tooltip-for-likert-scale">4) Tooltip for Likert Scale</h4>
+<ol type="1">
+<li><p>Apply filter on [Score] - Exclude NULL value.</p></li>
+<li><p>Drag [Score] to Columns, [Country], [Number of records] to Rows and [Score] to Colour. <img src="images/ig57.PNG" /><br />
+<em>Figure 80</em></p></li>
+<li><p>Right click [Number of records] &gt; Quick Table calculations &gt; Percent of total. Right click again &gt; Compute using &gt; Score. <img src="images/ig58.gif" /><br />
+<em>Figure 81</em></p></li>
+<li><p>Format chart.<br />
+</p></li>
+</ol>
+<ol type="a">
+<li><p>Increase size to max. <img src="images/ig59.png" /><br />
+<em>Figure 82</em></p></li>
+<li><p>Remove headers as done previously. <img src="images/ig60.png" /><br />
+<em>Figure 83</em></p></li>
+<li><p>Remove gridlines as done previously.</p></li>
+<li><p>Label chart.<br />
+Drag [Number of records] into Label.<br />
+Right click [Number of records] &gt; Quick Table calculations &gt; Percent of total. Right click again &gt; Compute using &gt; Score.<br />
+<img src="images/ig61.png" /><br />
+<em>Figure 84</em></p></li>
+</ol>
+<p>Select Label, change font to size 8, alignment to bottom. <img src="images/ig62.png" /><br />
+<em>Figure 85</em></p>
+<p>Format [Number of records] to percentage using 1 decimal. <img src="images/ig63.png" /><br />
+<em>Figure 86</em></p>
+<p>Rename tab “tooltip for likert”</p>
+<ol start="5" type="1">
+<li>Go to Likert scale tab Select Tooltip &gt; Insert &gt; sheets &gt; tooltip for likert. Change maxheight to 200 and filter <All Fields> to <Country> <img src="images/ig64.png" /><br />
+<em>Figure 87</em></li>
+</ol>
+<h4 id="tooltip-for-age">5) Tooltip for Age</h4>
+<p>As done previously, Duplicate “Tooltip for likert” tab, replace [Country] with [Age group]. Hide headers.</p>
+<p>Repeat for employment, HH, gender and kids, replacing [Age group] with respective fields.</p>
+<h4 id="age-tab">6) Age tab</h4>
+<ol type="1">
+<li>Select Tooltip &gt; Insert &gt; sheets &gt; tooltip for Age. Change maxheight to 200 and filter <All Fields> to <Age group> <img src="images/ig68.png" /><br />
+<em>Figure 88</em></li>
+</ol>
+<p>Repeat adding Tooltip for employment, HH, gender and kids, replacing <Age group> with respective fields.</p>
+<h4 id="error-bar-legend">7) Error Bar legend</h4>
+<ol type="1">
+<li><p>Create new calculated field<br />
+<img src="images/qn.PNG" /><br />
+<em>Figure 89</em><br />
+Ensure data type is “String” and convert to “Dimension”</p></li>
+<li><p>Change chart type to shape and drag [Question mark] into shape. Click on shape and select a shape.<br />
+For more details on importing shapes, refer to <a href="https://www.tableau.com/about/blog/2016/2/how-use-custom-shapes-filters-your-dashboard-50200">Tableau blog</a>. <img src="images/ig77.png" /><br />
+<em>Figure 90</em></p></li>
+<li><p>Tooltip.<br />
+Click on tooltip &gt; and update accordingly. Colour palate must be the same as margin of error tab. <img src="images/ig78.PNG" /><br />
+<em>Figure 91</em></p></li>
+</ol>
+<h4 id="information-legend">8) Information legend</h4>
+<ol type="1">
+<li><p>Create new calculated field<br />
+<img src="images/i1.PNG" /><br />
+<em>Figure 92</em></p></li>
+<li><p>Drag [i] into Label, change chart type to shape and drag [i] into shape. Click on shape and select i shape.</p></li>
+<li><p>Tooltip.<br />
+Click on tooltip &gt; and update accordingly. <img src="images/i2.PNG" /><br />
+<em>Figure 93</em></p></li>
+</ol>
+<h4 id="score-legend">9) Score legend</h4>
+<ol type="1">
+<li><p>Create legend chart <img src="images/ig80.png" /><br />
+<em>Figure 94</em></p></li>
+<li><p>Drag [Score] to filter. Filter out NULL.</p></li>
+<li><p>Fix axis between 0 and 1.<br />
+<img src="images/ig81.PNG" /><br />
+<em>Figure 95</em></p></li>
+<li><p>Remove all headers.</p></li>
+<li><p>Shrink to fit. And remove gridlines.<br />
+<img src="images/ig82.png" /><br />
+<em>Figure 96</em></p></li>
+</ol>
+<h4 id="count">10) Count</h4>
+<ol type="1">
+<li><p>Drag [Number of records] to Text. <img src="images/count.png" /><br />
+<em>Figure 97</em></p></li>
+<li><p>Click on Text &gt; edit text &gt; change aligned to centre.<br />
+<img src="images/count2.PNG" /><br />
+<em>Figure 98</em></p></li>
+<li><p>Format borders.<br />
+<img src="images/count3.png" /><br />
+<em>Figure 99</em></p></li>
+</ol>
+<h4 id="pointer">11) Pointer</h4>
+<ol type="1">
+<li><p>Create new calculated field<br />
+<img src="images/pointer.PNG" /><br />
+<em>Figure 100</em></p></li>
+<li><p>Drag [pointer] into Label, change chart type to shape and drag [pointer] into shape. Click on shape and select pointer shape. <img src="images/pointer1.png" /><br />
+<em>Figure 101</em></p></li>
+<li><p>Tooltip.<br />
+Click on tooltip and remove all text. <img src="images/pointer2.png" /><br />
+<em>Figure 102</em></p></li>
+</ol>
+<h4 id="dashboard-1">12) Dashboard</h4>
+<ol type="1">
+<li><p>Go to Likert Scale tab. Right click Survey &gt; Apply to Worksheets &gt; All using this data source. Repeat for [Score] filter. <img src="images/ig69.png" /><br />
+<em>Figure 103</em></p></li>
+<li><p>For all tabs, ensure that the view is in “Entire view”. <img src="images/view.png" /><br />
+<em>Figure 104</em></p></li>
+<li><p>Dashboard Size<br />
+Change size to Automatic. <img src="images/ig70.png" /><br />
+<em>Figure 105</em></p></li>
+<li><p>Arrange layout according to sketch.<br />
+Drag and drop sheets into frame. <img src="images/ig71.gif" /><br />
+<em>Figure 106</em></p></li>
+<li><p>Hide worksheet titles for all charts.<br />
+<img src="images/ig72.png" /><br />
+<em>Figure 107</em></p></li>
+<li><p>Add titles to charts using dashboard text object.<br />
+<img src="images/ig73.png" /><br />
+<em>Figure 108</em></p></li>
+<li><p>Add banner to Survey by Country by dragging Text to top of chart and edit text.<br />
+<img src="images/ig74.png" /><br />
+<em>Figure 109</em></p></li>
+<li><p>Drag and drop Sentiment parameter just below “Margin of Error” title, realign it and the chart so that countries are aligned for both survey and margin of error chart. <img src="images/ig75.png" /><br />
+<em>Figure 110</em></p></li>
+<li><p>Similar to step 8, drag the survey question filter to top to the dashboard. Format font size to 14. <img src="images/ig76.PNG" /><br />
+<em>Figure 111</em></p></li>
+<li><p>Add in margin of error legend. <img src="images/ig79.png" /><br />
+<em>Figure 112</em></p></li>
+<li><p>Add in score legend. Similar to step 10 above, add in score legend next to the neutral. <img src="images/ig83.PNG" /><br />
+<em>Figure 113</em></p></li>
+<li><p>Add dashboard title<br />
+Drag text to top of dashboard and add title: Global Opinion on willingness to vaccinate.</p></li>
+<li><p>Add Count details.<br />
+<img src="images/count4.png" /><br />
+<em>Figure 114</em></p></li>
+<li><p>Add in information legend. <img src="images/ig85.png" /><br />
+<em>Figure 115</em></p></li>
+<li><p>Add in pointer legend <img src="images/pointer3.png" /><br />
+<em>Figure 116</em></p></li>
+<li><p>Add action.<br />
+<img src="images/ig84.png" /><br />
+<em>Figure 117</em></p></li>
+<li><p>Add Source Source: Imperial College London YouGov Covid 19 Behaviour Tracker Data Hub (<a href="https://github.com/YouGov-Data/covid-19-tracker" class="uri">https://github.com/YouGov-Data/covid-19-tracker</a>)</p></li>
+<li><p>Add author details<br />
+Dataviz Makeover #2 by <span class="citation" data-cites="suyiinang">@suyiinang</span></p></li>
+</ol>
+<hr />
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
