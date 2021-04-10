@@ -40,15 +40,15 @@ This report covers the **Exploratory and Confirmatory Analysis module**.
 
 The objectives of this report are to
 
-(i) identify and select the appropriate R packages for the final R shiny application,  
-(ii) develop prototypes of the module, and  
-(iii) prepare storyboard sketch for the sub-module design.  
+i) identify and select the appropriate R packages for the final R shiny application,  
+ii) develop prototypes of the module, and  
+iii) prepare storyboard sketch for the sub-module design.  
 
 During prototype testing, 3 aspects were taken into consideration:
 
-(i) interactivity
-(ii) statistical testing
-(iii) compatibility with R Shiny
+i) interactivity
+ii) statistical testing
+iii) compatibility with R Shiny
 
 # 2. Literature review
 
@@ -56,7 +56,7 @@ Prior to building our prototype, we examined two application as part of our lite
 
 The [Radiant](https://vnijs.shinyapps.io/radiant/?_ga=2.97157535.1465001607.1617910198-1515208298.1617518733&SSUID=71147ad3f8) Shiny application developed by [Vincent Nijs](https://rady.ucsd.edu/people/faculty/nijs/) is a powerful interface for business analytics using R. The two modules - _radiant.data_ and _radiant.basic_ offers tools to visualise and perform statistical analysis. Radiant utilises the `ggplot2` package for visualisation and R's stats package for statistical testing. For _radiant.data_ pivot tab, users are able to create a wide range of **static** charts with the given selections. While for the _radiant.basics_ module, users are expected to have a **basic understanding of statistical testing methods** as they are first required to select their testing method before proceeding. Furthermore, the statistical testing and visualisation are done separately, hence users are not able to visualise and perform inferential statistics on one page.
 
-Meanwhile, the [MEPHAS](https://alain003.phs.osaka-u.ac.jp/mephas/#) Shiny application by Zhou, Y., Leung, Sw., Mizutani, S. et al. (2020) is an integrated web application for statistical analysis to support the medical and pharmaceutical analysis. To overcome the statistical knowledge hurdle, the MEPHAS application has an interactive user friendly flow chart that helps user find the right statistical method. The list of statistical test and visualisations covered are extensive, and the process flow is logical and easy to understand to an average user. Furthermore, MEPHAS has seamlessly integrated interactivity for both the visual plots and statistical outputs. However, different statistical test methods are located on web server, i.e parametric t test on [this erver](https://alain003.phs.osaka-u.ac.jp/mephas_web/2MFSttest/) and non-parametric t-test on [this serve](https://alain003.phs.osaka-u.ac.jp/mephas_web/3MFSnptest/). Hence, the **transition** from one testing method to another is relatively more **tedious with regards to user experience**.
+Meanwhile, the [MEPHAS](https://alain003.phs.osaka-u.ac.jp/mephas/#) Shiny application by Zhou, Y., Leung, Sw., Mizutani, S. et al. (2020) is an integrated web application for statistical analysis to support the medical and pharmaceutical analysis. To overcome the statistical knowledge hurdle, the MEPHAS application has an interactive user friendly flow chart that helps user find the right statistical method. The list of statistical test and visualisations covered are extensive, and the process flow is logical and easy to understand to an average user. Furthermore, MEPHAS has seamlessly integrated interactivity for both the visual plots and statistical outputs. However, different statistical test methods are located on web server, i.e parametric t test on [this server](https://alain003.phs.osaka-u.ac.jp/mephas_web/2MFSttest/) and non-parametric t-test on [this server](https://alain003.phs.osaka-u.ac.jp/mephas_web/3MFSnptest/). Hence, the **transition** from one testing method to another is relatively more **tedious with regards to user experience**.
 
 Taking the two applications into consideration, our application intends to enhance user experience by incorporating interactivity to the graph, automating statistical testing that caters to the average user that has minimal statistical background, and presenting statistical test and interactive graph in a single tab that would enhance visual experience.
 
@@ -515,10 +515,11 @@ ggbetweenstats(
 
 #### 4.3.3.2 Using [`ggplot2`](https://ggplot2.tidyverse.org/reference/index.html) and [`ggplotly()`](https://plotly.com/ggplot2/)
 
-Here we used `ggpubr` function of `stat_compare_means()` to include the p-value into the interactively chart. Similarly, we have cross check the p-value to the `t.test` and `ggbetweenstats` to ensure that all the results are consistent.
+Here we used `ggpubr` function of `stat_compare_means()` to include the p-value into the interactively chart. Similarly, we have cross check the p-value to the `t.test` and `ggbetweenstats` to ensure that all the results are consistent. Here, the p-value is > 0.05, this means that the average price difference between host and superhost is significant.
 
-In our example, 
-For categorical variables with more than 3 groups, 
+In our example below, the categorical variable has 2 levels, hence the `t.test` was used.
+
+For categorical variables with more than 2 levels, the anova test will be used using `anova_test()`. Should the `anova_test()` be significant, the `tukey_hsd()` will be perform to show where the differences lie.
 
 ```{r}
 base <- ggplot(final_listing, aes(host_is_superhost, y = price)) + 
