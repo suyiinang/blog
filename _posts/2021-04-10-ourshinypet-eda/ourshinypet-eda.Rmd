@@ -7,16 +7,17 @@ author:
     url: https://www.linkedin.com/in/suyiinang/
 date: 04-11-2021
 categories:
-  - DataViz Makeover
+  - Exploratory
 output:
   distill::distill_article:
     self_contained: false
     toc: true
     toc_float: true
+    code_folding: true
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = TRUE, layout="l-body-outset")
 ```
 
 # 1. Introduction
@@ -74,7 +75,9 @@ The following packages were mainly used in exploring and developing our prototyp
 - [`ggstatsplot`](https://indrajeetpatil.github.io/ggstatsplot/index.html) to create plots with statistical tests included within plot.  
 
 ```{r, message = FALSE, class.source = 'fold-show'}
-packages = c('tidyverse', 'ggplot2', 'skimr', 'naniar', 'kableExtra','dplyr', 'ggstatsplot','plotly', 'readr','haven','funModeling','crosstalk','data.table', 'skimr', 'ggmosaic','ggExtra','ggpubr','sf','tmap','sp', 'leaflet')
+packages = c('tidyverse', 'ggplot2', 'skimr', 'naniar', 'kableExtra','dplyr', 'ggstatsplot','plotly',
+             'readr','haven','funModeling','crosstalk','data.table', 'skimr', 'ggmosaic','ggExtra','ggpubr',
+             'sf','tmap','sp', 'leaflet')
 
 for(p in packages){
   if(!require(p, character.only = T)){
@@ -111,7 +114,9 @@ To avoid having too many variables that would overwhelm the user, we have droppe
 
 ```{r,  message = FALSE, class.source = 'fold-show'}
 listings2 <- listings %>%
-  select(-id, -listing_url, -scrape_id, -neighborhood_overview, -picture_url, -host_id, -host_url, -host_name, -host_location, -host_thumbnail_url, -host_picture_url, -first_review, -last_review, -last_scraped, -calendar_last_scraped, -has_availability, -host_has_profile_pic, -calendar_updated, -license, -bathrooms, -neighbourhood, -host_neighbourhood)
+  select(-id, -listing_url, -scrape_id, -neighborhood_overview, -picture_url, -host_id, -host_url, -host_name, -host_location,
+         -host_thumbnail_url, -host_picture_url, -first_review, -last_review, -last_scraped, -calendar_last_scraped,
+         -has_availability, -host_has_profile_pic, -calendar_updated, -license, -bathrooms, -neighbourhood, -host_neighbourhood)
 ```
 
 ## 3.4 Create new variables
@@ -243,7 +248,7 @@ DT::datatable(sum_data)
 DT::datatable(sum_n)
 DT::datatable(sum_f)
 ```
-***
+
 
 ## 4.2 Plotting univariate charts
 
@@ -290,7 +295,7 @@ We have tried to wrap the `ggstatsplot` chart with `ggplotly()`, however by doin
 ggplotly(g_hist)
 ```
 
-***
+
 
 #### 4.2.1.2 With [`ggplot2`](https://ggplot2.tidyverse.org/reference/index.html)
 
@@ -373,7 +378,7 @@ For bivariate analysis, we would like to be able to plot 3 main types of interac
 
 - 1 numerical and 1 categorical - box/violin plot
 
-*** 
+ 
 
 
 ### 4.3.1 Plotting numerical variables with scatterplot
@@ -390,7 +395,7 @@ p1 <- ggplot(final_listing,
 p2<-ggMarginal(p1, groupColour = TRUE, groupFill = TRUE)
 p2
 ```
-***
+
 
 #### 4.3.1.2 With [`ggstatsplot`](https://indrajeetpatil.github.io/ggstatsplot/index.html)
 
@@ -425,7 +430,7 @@ grouped_ggscatterstats( #changed this
 plot.grid.args = list(nrows =1, ncol = 2)) #to view in one row
 ```
 
-***
+
 
 #### 4.3.1.3 using [`ggplot2`](https://ggplot2.tidyverse.org/reference/index.html) and [`ggplotly()`](https://plotly.com/ggplot2/)
 
@@ -444,7 +449,7 @@ ggplotly(scatter)
 cor.test(final_listing$review_scores_rating, final_listing$amenities_count, conf.level = 0.95)
 ```
 
-***
+
 
 ### 4.3.2 Plotting categorical variables - Mosaic plot
 
@@ -461,7 +466,7 @@ ggbarstats(data = final_listing,
            ggtheme = ggplot2::theme_classic())
 ```
 
-***
+
 
 #### 4.3.2.2 Using [`ggmosaic`](https://haleyjeppson.github.io/ggmosaic/), [`ggplot2`](https://ggplot2.tidyverse.org/reference/index.html) and [`ggplotly()`](https://plotly.com/ggplot2/)
 
@@ -485,7 +490,7 @@ ggplotly(m)
 chisq
 ```
  
-***
+
 
 ### 4.3.3 Plotting numerical and categorical variabes - Box and violin plot
 
@@ -506,7 +511,7 @@ ggbetweenstats(
 )
 ```
 
-***
+
 
 #### 4.3.3.2 Using [`ggplot2`](https://ggplot2.tidyverse.org/reference/index.html) and [`ggplotly()`](https://plotly.com/ggplot2/)
 
@@ -533,7 +538,7 @@ boxly
 t.test(price ~ host_is_superhost, final_listing, var.equal = FALSE)
 ```
 
-***
+
 
 ## 4.4 Mapping Airbnb
 
@@ -581,7 +586,7 @@ p_map <-tm_shape(mpsz) +
 p_map
 ```
 
-*** 
+ 
 
 #### 4.4.4.2 With `leaflet`
 
@@ -598,7 +603,7 @@ leaflet(data = final_listing) %>%
                    clusterOptions = markerClusterOptions()) 
 ```
 
-*** 
+ 
 
 ### 4.4.2 Chloropleth Map
 
@@ -641,7 +646,7 @@ tmap_mode('view')
 map
 ```
 
-***
+
 
 #### With `leaflet`
 
@@ -678,7 +683,7 @@ l_m
 
 ```
 
-***
+
 
 # 5. Testing Shiny interface
 
@@ -743,7 +748,7 @@ bscols(widths = c(3,9),
 )
 ```
 
-***
+
 
 ## 5.2 R Shiny with `ggplot2`
 
@@ -825,7 +830,7 @@ bscols(widths = c(3,9),
        plotlyOutput('bbox'))
 ```
 
-***
+
 
 # 6. Assessment of prototype
 
