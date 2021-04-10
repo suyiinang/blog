@@ -1,11 +1,11 @@
 ---
-title: "I have moved"
+title: "Main site under renovation"
 description: |
-  Please visit new site - https://suyiinang.netlify.app/
+  Temporary site - main site under renovation
 author:
   - name: Su Yiin Ang
     url: https://public.tableau.com/profile/suyiinang
-date: 02-07-2021
+date: 04-10-2021
 output:
   distill::distill_article:
     self_contained: false
@@ -16,7 +16,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Please visit my new site: [https://suyiinang.netlify.app/](https://suyiinang.netlify.app/)
+This is a temporary site, main site under maintenance.
 
 
 

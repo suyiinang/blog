@@ -86,37 +86,37 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>I have moved</title>
+  <title>Main site under renovation</title>
 
-  <meta property="description" itemprop="description" content="Please visit new site - https://suyiinang.netlify.app/"/>
+  <meta property="description" itemprop="description" content="Temporary site - main site under renovation"/>
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-02-07"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-02-07"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-04-10"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-04-10"/>
   <meta name="article:author" content="Su Yiin Ang"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="I have moved"/>
+  <meta property="og:title" content="Main site under renovation"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Please visit new site - https://suyiinang.netlify.app/"/>
+  <meta property="og:description" content="Temporary site - main site under renovation"/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="I have moved"/>
-  <meta property="twitter:description" content="Please visit new site - https://suyiinang.netlify.app/"/>
+  <meta property="twitter:title" content="Main site under renovation"/>
+  <meta property="twitter:description" content="Temporary site - main site under renovation"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["I have moved"]},{"type":"character","attributes":{},"value":["Please visit new site - https://suyiinang.netlify.app/\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Su Yiin Ang"]},{"type":"character","attributes":{},"value":["https://public.tableau.com/profile/suyiinang"]}]}]},{"type":"character","attributes":{},"value":["02-07-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Main site under renovation"]},{"type":"character","attributes":{},"value":["Temporary site - main site under renovation\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Su Yiin Ang"]},{"type":"character","attributes":{},"value":["https://public.tableau.com/profile/suyiinang"]}]}]},{"type":"character","attributes":{},"value":["04-10-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["i-have-moved_files/anchor-4.2.2/anchor.min.js","i-have-moved_files/bowser-1.9.3/bowser.min.js","i-have-moved_files/distill-2.2.21/template.v2.js","i-have-moved_files/header-attrs-2.6/header-attrs.js","i-have-moved_files/jquery-1.11.3/jquery.min.js","i-have-moved_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"NULL"}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -308,6 +308,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     text-decoration: underline;
   }
 
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
   @media(min-width: 768px) {
 
   d-article pre,
@@ -462,6 +467,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   div.hanging-indent{
     margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
   }
 
 
@@ -1129,7 +1145,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       var layout = $(this).attr('data-layout');
 
       // apply layout to markdown level block elements
-      var elements = $(this).children().not('div.sourceCode, pre, script');
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
       elements.each(function(i, el) {
         var layout_div = $('<div class="' + layout + '"></div>');
         if (layout_div.hasClass('shaded')) {
@@ -1244,6 +1260,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       // move appendix-bottom entries to the bottom
       $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
       $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
 
       // clear polling timer
       clearInterval(tid);
@@ -1404,12 +1434,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="i-have-moved_files/header-attrs-2.7/header-attrs.js"></script>
-  <script src="i-have-moved_files/jquery-1.11.3/jquery.min.js"></script>
-  <script src="i-have-moved_files/anchor-4.2.2/anchor.min.js"></script>
-  <script src="i-have-moved_files/bowser-1.9.3/bowser.min.js"></script>
-  <script src="i-have-moved_files/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="i-have-moved_files/distill-2.2.21/template.v2.js"></script>
+  <script src="main-site-under-reno_files/header-attrs-2.7/header-attrs.js"></script>
+  <script src="main-site-under-reno_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="main-site-under-reno_files/popper-2.6.0/popper.min.js"></script>
+  <link href="main-site-under-reno_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="main-site-under-reno_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="main-site-under-reno_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="main-site-under-reno_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="main-site-under-reno_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="main-site-under-reno_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="main-site-under-reno_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
@@ -1421,7 +1455,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"I have moved","description":"Please visit new site - https://suyiinang.netlify.app/","authors":[{"author":"Su Yiin Ang","authorURL":"https://public.tableau.com/profile/suyiinang","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-02-07T00:00:00.000+08:00","citationText":"Ang, 2021"}
+{"title":"Main site under renovation","description":"Temporary site - main site under renovation","authors":[{"author":"Su Yiin Ang","authorURL":"https://public.tableau.com/profile/suyiinang","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-04-10T00:00:00.000+08:00","citationText":"Ang, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1431,20 +1465,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>I have moved</h1>
+<h1>Main site under renovation</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Please visit new site - <a href="https://suyiinang.netlify.app/" class="uri">https://suyiinang.netlify.app/</a></p></p>
+<p><p>Temporary site - main site under renovation</p></p>
 </div>
 
 <div class="d-byline">
   Su Yiin Ang <a href="https://public.tableau.com/profile/suyiinang" class="uri">https://public.tableau.com/profile/suyiinang</a> 
   
-<br/>02-07-2021
+<br/>04-10-2021
 </div>
 
 <div class="d-article">
-<p>Please visit my new site: <a href="https://suyiinang.netlify.app/">https://suyiinang.netlify.app/</a></p>
+<p>This is a temporary site, main site under maintenance.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

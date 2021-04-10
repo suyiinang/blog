@@ -1,0 +1,712 @@
+---
+title: "test"
+description: |
+  A short description of the post.
+author:
+  - name: Su Yiin Ang
+    url: https://public.tableau.com/profile/suyiinang
+date: 04-07-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = TRUE)
+```
+
+# 1. Introduction
+
+## 1.1 Overview of application
+
+The increasing availability of data has resulted in the increased demand for data driven decisions. Although there is an extensive range of commercial statistical tools, they are often subscription-based and demand good technical knowledge to mine and draw insights from. Therefore, it may not appeal to the average user.
+
+Hence, the main idea of this application is its **user-friendly and interactive** R Shiny interface that would enable everyone to make data based decisions **without** needing programming or statistical background. We have selected 
+
+There are three parts to this shiny application - Text Mining, Exploratory and Confirmatory, and Predictive Analytics. 
+
+Please visit our website at https://ourshinypet.netlify.app/ for more details.
+
+## 1.2 Objective of this report
+
+This report will cover the **Exploratory and Confirmatory Analysis module**.
+
+The main objective of this report is to  
+
+(i) identify and select the appropriate R packages for the final R shiny application,  
+(ii) develop prototypes of the module, and  
+(iii) prepare storyboard sketch for the sub-module design.  
+
+# 2. Literature review
+
+
+
+
+
+# 3 Extracting, wrangling and preparing the input data 
+
+Listings of Airbnbs in Singapore were extract from [InsideAirbnb.com](http://insideairbnb.com/get-the-data.html)
+
+## 3.1 Load the relevant packages
+
+Our focus is on using packages from the [`Tidyverse`](https://www.tidyverse.org/) family.
+
+The following packages were mainly used in exploring and developing our prototype.  
+- [`readr`](https://readr.tidyverse.org/), [`tibble`](https://tibble.tidyverse.org/), [`dplyr`](https://dplyr.tidyverse.org/), [`tidyr`](https://tidyr.tidyverse.org/) to load, process and prepare data for final exploration.   
+- [`ggplot2`](https://ggplot2.tidyverse.org/index.html) to create exploratory plots.  
+- [`plotly`](https://plotly.com/r/) to create interactive plots for exploratory analysis.   
+- [`ggstatsplot`](https://indrajeetpatil.github.io/ggstatsplot/index.html) to create plots with statistical tests included within plot.  
+
+```{r, message = FALSE, class.source = 'fold-show'}
+packages <- c('tidyverse','ggstatsplot','plotly','readr','haven','funModeling','crosstalk','data.table','shiny', 'shinyWidgets', 'skimr', 'ggmosaic','ggExtra','ggpubr')
+
+for (p in packages){
+  if (!require(p,character.only=T)){
+    install.packages(p)
+  }
+  library(p, character.only=T)
+}
+```
+
+## 3.2 Extracting and wrangling the dataset
+
+```{r,  message = FALSE, class.source = 'fold-show'}
+# Read the csv file as a tbl_df
+listing_prep <- read_csv("./data/listing_prep.csv")
+listing_prep <- listing_prep %>%
+  mutate(price, price_per_pax = round(price/accommodates,2)) %>%
+  mutate_if(is.logical, as.character)
+
+var_list <- sort(names(listing_prep))
+listing_num <- select_if(listing_prep, is.numeric)
+listing_cat <- listing_prep %>% select_if(~is.character(.) | is.logical(.))
+
+set.seed(123) # for reproducibility
+
+```
+
+# 4. Testing protypes for submodule
+
+## 4.1 Plotting univariate charts
+
+For univariate charts, we would like to be able to observe :
+
+i) Distribution - through histogram for numerical variables and barplot for categorical variables
+
+ii) Outlier of selected variable - through boxplot 
+
+### 4.1.1 Plotting distribution with histogram and bar plots
+
+#### 4.1.1.1 With`ggstatsplot`](https://indrajeetpatil.github.io/ggstatsplot/index.html)
+
+`ggbarstats()` currently only supports two variables as evidence in the [documentation](https://indrajeetpatil.github.io/ggstatsplot/reference/ggbarstats.html) of the `y` argument. 
+
+See extract below:
+
+> The variable to use as the columns in the contingency table. Please note that if there are empty factor levels in your variable, they will be dropped. Default is `NULL.` If `NULL`, one-sample proportion test (a goodness of fit test) will be run for the `x` variable. Otherwise an appropriate association test will be run. This argument can not be `NULL` for `ggbarstats` function.
+
+Hence the visual below only apply to numerical variables.
+
+```{r}
+####################
+#variable class
+####################
+output$d_type <- renderPrint({
+  d_type <- unlist(listing_prep[,input$x_hist])
+  paste('Datatype of selected variable' , class(d_type))})
+####################
+#gghistostats
+####################
+
+output$gghist <- renderPlot({
+  
+  x <- unlist(listing_prep[,input$x_hist2])
+  
+  hist <- gghistostats(
+    data = listing_prep,
+    x = !!colnames(listing_prep[input$x_hist]), 
+    title = paste('Distribution of ', input$x_hist),
+    normal.curve = TRUE,
+    normal.curve.args = list(color = "red", size = 1),
+    ggtheme = ggplot2::theme_classic()
+    )
+  hist
+})
+
+#################
+#ui
+###################
+bscols(widths = c(12),
+       list(
+          selectInput(inputId = 'x_hist',
+          label = 'Select x-variable',
+          choices = sort(colnames(listing_num)),
+          selected = 'price_per_pax'),
+           
+          verbatimTextOutput('d_type')),
+        
+          plotOutput('gghist')
+ 
+)
+```
+
+
+#### Attempt to add interactivity to [`ggstatsplot`](https://indrajeetpatil.github.io/ggstatsplot/index.html) chart using [`ggplotly`](https://plotly.com/ggplot2/)
+
+We have tried to wrap the `ggstatsplot` chart wwith `ggplotly()`, however by doing so, we would lose key metric such as the fitted normal curve and statistical test results. As clarified by the author [here](https://github.com/IndrajeetPatil/ggstatsplot/issues/403), this is a [`ggplot2`](https://ggplot2.tidyverse.org/reference/index.html) issue.
+
+```{r}
+renderPlotly({
+  p <- gghistostats(
+    listing_prep,
+    x = !!colnames(listing_prep[input$x_hist]),
+    xlab =  paste('Distribution of ', input$x_hist),
+    title = 'ggstatsplot histogram and ggplotly wrapper for interactivity',
+    normal.curve = TRUE,
+    normal.curve.args = list(color = "red", size = 1),
+    ggtheme = ggplot2::theme_classic())
+  
+  ggplotly(p)
+  
+})
+
+```
+
+***
+
+#### 4.1.1.2 With [`ggplot2`](https://ggplot2.tidyverse.org/reference/index.html)
+
+To work around `ggstatsplot` limitation, we have used `ggplot2` the visualise the variables and included computed statistical test below. 
+
+For the statistical tests, we have assume normality as our dataset has 3000+ observations. Hence, we have used `t.test` for numerical variables and `prop.test` for categorical variables.
+
+```{r}
+###############
+# themes
+##############
+themes <- list("Light" = theme_light(),
+               "Minimal" = theme_minimal(),
+               "Classic" = theme_classic(),
+               "B&W" = theme_bw(),
+               "Gray" = theme_gray())
+plot_theme <- reactive({themes[[input$iTheme]]})
+####################
+#variable class
+####################
+output$d_type2 <- renderPrint({
+  d_type <- unlist(listing_prep[,input$x_hist2])
+  paste(class(d_type))})
+#####################
+# histogram / barplots
+######################
+
+ output$dist <- renderPlotly({
+   x <- unlist(listing_prep[,input$x_hist2])
+   
+   base <- ggplot(listing_prep, aes(x = x)) + 
+     labs(title = paste("Distribution of ", input$x_hist2)) +
+     xlab(paste(input$x_hist2)) +
+     plot_theme()
+   
+   num <- geom_histogram(bins = input$bin,
+                          color = '#767676',
+                          fill = '#FF5A5F')
+      
+   cat <- geom_histogram(stat = 'count',
+                       color = '#767676',
+                          fill = '#FF5A5F')
+   
+   hist <- if(class(x) == "numeric"){
+     base + num 
+   } else {
+     base + cat
+   }
+
+   hist_mean <- geom_vline(aes(xintercept=mean(x,na.rm=T)),color="#00A699", linetype="dashed", size=1)
+   hist_median <- geom_vline(aes(xintercept=median(x,na.rm=T)),color="#484848", linetype="dashed", size=1)
+
+   show_m <- hist + hist_mean + hist_median
+
+  ggplotly(show_m)   
+  
+  })
+#####################
+#conf test
+####################
+output$conf_test <- renderPrint({
+  
+  x <- unlist(listing_prep[,input$x_hist2])
+  
+  num <- t.test(x,
+         alternative = input$alternative,
+         conf.level = input$conf_lev_hist)
+
+  test <-if(class(x) == 'numeric'){num}
+  else if (class(x) == 'logical'){return('One proportion z-test is under work in progress')}
+  else if (class(x) == 'character'){return('One proportion z-test is under work in progress')}
+  else {return('One proportion z-test is under work in progress')}
+  
+  test
+})
+###################
+# uii
+#################
+bscols(widths = c(3,9),
+       list(selectInput(inputId = 'x_hist2',
+          label = 'Select x-variable',
+          choices = var_list,
+          selected = 'price_per_pax'),
+          
+        verbatimTextOutput('d_type2'),
+
+        sliderInput(inputId = "bin", 
+                          label = "Number of bins", 
+                          min = 5, 
+                          max = 30, 
+                          value = 10),
+        
+        selectInput(inputId = 'iTheme',
+                             label = 'Select theme',
+                             choices = sort(names(themes)),
+                             selected = 'Gray'),
+        
+       selectInput(inputId = 'alternative',
+                       label = 'Alternative',
+                       choices = c('two.sided','less','greater'),
+                       selected = 'two.sided'),
+       
+        sliderInput(inputId = 'conf_lev_hist',
+            label = "Confidence Interval",
+            min = 0,
+            max = 1,
+            value = 0.95)
+
+       ),
+       plotlyOutput('dist'))
+
+verbatimTextOutput('conf_test')
+ 
+```
+
+
+### 4.1.2 Plotting outliers with boxplot
+
+[`ggstatsplot`](https://indrajeetpatil.github.io/ggstatsplot/index.html) currently doesn't not have any graph to plot a single variable boxplot for outlier observations. As such, I have used [`ggplotly()`](https://plotly.com/ggplot2/) and [`ggplot2`](https://ggplot2.tidyverse.org/reference/index.html)  to create and interactive chart. 
+
+***
+
+#### 4.2.1 Using `ggplot2`
+
+```{r}
+bscols(widths = c(12),
+       list(
+        strong('Summary statistics for review_scores_rating'),
+        
+        renderPrint({summary(listing_prep$review_scores_rating)}),
+       
+        renderPlotly({
+          boxchart <- ggplot(listing_prep, 
+                             aes(x = '', y = review_scores_rating, colour = '#FF5A5F')) +
+            geom_boxplot() +
+            coord_flip() +
+            stat_boxplot(geom ='errorbar') +
+            stat_summary(fun.y=mean, geom="point", shape=5, size=4)+ 
+            labs(title = paste("Outlier boxplot using ggplot and ggplotly")) +
+            xlab('review_scores_rating') +
+            theme_classic() +
+            theme(legend.position = 'none')
+            
+            boxchart
+          })
+))
+         
+```
+
+## 4.2 Bivariate exploratory and confirmatory analysis
+
+For bivariate analysis, we would like to be able to plot 3 main types of interactions between variables - 
+
+- 2 numerical variables - Scatterplot 
+
+- 1 numerical and 1 categorical - box/violin plot
+
+- 2 categorical variables - mosaic plot
+
+*** 
+
+### 4.2.1 Plotting numerical variables with scatterplot
+
+#### 4.2.1.1 using `ggMarginal`
+
+- add marginal plots to [`ggplot2`](https://ggplot2.tidyverse.org/reference/index.html) charts but not interactive - doesn't not interact with plotly.
+
+```{r}
+renderPlot({
+  p1 <- ggplot(listing_prep, 
+               aes(host_listings_count, review_scores_rating, colour = host_is_superhost)) +
+  geom_point() +
+  title('Scatterplot of host_listings_count and review_scores_rating using ggMarginal')
+
+  ggMarginal(p1, groupColour = TRUE, groupFill = TRUE)
+})
+```
+
+***
+
+#### 4.2.1.2 using [`ggstatsplot`](https://indrajeetpatil.github.io/ggstatsplot/index.html)
+
+```{r}
+
+
+bscols(widths = c(3,9),
+       list(
+          selectInput(inputId = 'x_scat',
+          label = 'Select x-variable',
+          choices = colnames(listing_num),
+          selected = 'host_listings_count'),
+          
+          selectInput(inputId = 'y_scat',
+          label = 'Select y-variable',
+          choices = colnames(listing_num),
+          selected = 'review_scores_rating'),
+          
+          sliderInput(inputId = 'conf_lev',
+            label = "Confidence Interval",
+            min = 0,
+            max = 1,
+            value = 0.95)),
+        
+          renderPlot({
+          ggscatterstats(
+            data = listing_prep,
+            x = !!colnames(listing_prep[input$x_scat]), 
+            y = !!colnames(listing_prep[input$y_scat]), 
+            conf.level = input$conf_lev,  
+            title = paste('Scatterplot of ', input$x_scat, ' and ', input$y_scat, 'using ggstatsplot')
+            )
+          })
+  
+)
+
+```
+
+***
+
+#### 4.2.1.3 using [`ggplot2`](https://ggplot2.tidyverse.org/reference/index.html) and [`ggplotly()`](https://plotly.com/ggplot2/)
+
+```{r}
+
+output$correlation <- renderPrint({
+  x_num <- unlist(listing_prep[,input$x_num])
+  
+  y_num <- unlist(listing_prep[,input$y_num])
+  
+  print_cor <- cor.test(x_num, y_num)
+  
+  print_cor
+  
+})
+
+output$scatter <- renderPlotly({
+  x_num <- unlist(listing_prep[,input$x_num])
+  
+  y_num <- unlist(listing_prep[,input$y_num])
+  
+  c_cat <- if(input$scatter_colour == 'None'){
+    'None'} else { unlist(listing_prep[,input$scatter_colour]) }
+  
+  scatter <- ggplot(listing_prep, aes(x = x_num, y = y_num)) + 
+    labs(
+      title = paste("Scatterplot of ", input$x_num, 'and', input$y_num),
+      x = paste(input$x_num),
+      y = paste(input$y_num),
+      colour = paste(input$scatter_colour)) 
+  
+  add_colour <- geom_point(aes(fill = c_cat), alpha = 0.8)
+  
+  show_colour <- if(input$scatter_colour == 'None' ){
+     scatter + geom_point()
+   } else {
+     scatter + add_colour
+   }
+  
+  show_smooth <- if(input$smoothline){
+     show_colour + geom_smooth(method = "lm", se = FALSE)
+   } else {
+     show_colour
+   }  
+  
+  scatterly <- ggplotly(show_smooth)
+  
+  scatterly
+})
+
+bscols(widths = c(3,9),
+       list(
+        
+        selectInput(inputId = 'x_num',
+          label = 'Select x-variable',
+          choices = sort(colnames(listing_num)),
+          selected = 'review_scores_rating'),
+        
+        selectInput(inputId = 'y_num',
+          label = 'Select y-variable',
+          choices = sort(colnames(listing_num)),
+          selected = 'amenities_count'),
+        
+        selectInput(inputId = 'scatter_colour',
+                   label = 'Colour chart by:',
+                   choices = c('None', sort(colnames(listing_cat))),
+                   selected = 'None'),
+        
+        checkboxInput(inputId = 'smoothline',
+                      label = 'Add best fit line',
+                      value = TRUE)
+       ),
+       plotlyOutput('scatter')
+       )
+
+verbatimTextOutput('correlation')
+```
+
+***
+
+### 4.2.2 Plotting numerical and categorical variabes - Box and violin plot
+
+#### 4.2.2.1 Using [`ggstatsplot`](https://indrajeetpatil.github.io/ggstatsplot/index.html)
+
+```{r}
+
+bscols(widths = c(3,9),
+  list(selectInput(inputId = 'x_cda',
+                   label = 'Select x-variable',
+                   choices = sort(colnames(listing_cat)),
+                   selected = 'host_is_superhost'),
+       
+       selectInput(inputId = 'y_cda',
+                   label = 'Select y-variable',
+                   choices = sort(colnames(listing_num)),
+                   selected = 'price_per_pax'),
+       
+       selectInput(inputId = 'type',
+                   label = 'Select statistical approach ',
+                   choices = c("parametric", 'nonparametric','robust','bayes'),
+                   selected = 'parametric'),
+       
+       selectInput(inputId = 'pairwise',
+                   label = 'Select pairwise option ',
+                   choices = c("significant", 'non-significant','all'),
+                   selected = 'significant'),
+       
+       selectInput(inputId = 'p_adj',
+                   label = 'Select adjustment method of p-values ',
+                   choices = c("holm", 'hochberg','hommel','bonferroni', 'BH', 'BY', 'fdr', 'none'),
+                   selected = 'holm'),
+       
+       sliderInput(inputId = 'conf_lev2',
+                   label = "Confidence Interval",
+                   min = 0,
+                   max = 1,
+                   value = 0.95)),
+       
+      renderPlot({ggbetweenstats(
+        data = listing_prep,
+        x = !!colnames(listing_prep[input$x_cda]), 
+        y = !!colnames(listing_prep[input$y_cda]), 
+        title = paste('Comparison of ', input$y_cda, ' by ', input$x_cda),
+        type = input$type,
+        conf.level = input$conf_lev2,
+        pairwise.comparisons = TRUE,
+        pairwise.display = input$pairwise, #not working
+        p.adjust.method = input$p_adj, #not working
+        ggtheme = ggplot2::theme_classic())
+        })
+  
+)
+```
+
+***
+
+#### 4.2.2.2 Using [`ggplot2`](https://ggplot2.tidyverse.org/reference/index.html) and [`ggplotly()`](https://plotly.com/ggplot2/)
+
+```{r}
+output$bbox <- renderPlotly({
+  x_b_cat <- unlist(listing_prep[,input$x_b_cat])
+  
+  y_num <- unlist(listing_prep[,input$y_b_num])
+  
+  ccat <- if(input$box_colour == 'None'){'None'} 
+          else {unlist(listing_prep[,input$box_colour]) }
+
+  base <- ggplot(listing_prep, aes(x = x_b_cat, y = y_num)) + 
+    labs(
+      title = paste(input$chart_type, 'plot of ', input$x_b_cat, ' and ', input$y_b_num),
+      x = paste(input$x_b_cat),
+      y = paste(input$y_b_num),
+      colour = paste(input$box_colour))
+  
+  add_box_c <- geom_boxplot(aes(fill = ccat), outlier.shape = NA)
+  add_box <- geom_boxplot(outlier.shape = NA)
+  add_vio <- geom_violin()
+  add_vio_c <- geom_violin(aes(fill = ccat))
+  
+  bbox <- if (input$box_colour != 'None' & input$chart_type == 'Box'){base + add_box_c}
+          else if(input$box_colour == 'None' & input$chart_type == 'Box'){ base + add_box }
+          else if(input$box_colour != 'None' & input$chart_type == 'Violin'){ base + add_vio_c }
+          else { base + add_vio}
+  
+  
+  flip_chart <- if(input$flipxy){
+     bbox + coord_flip()
+   } else {
+     bbox
+   }  
+  
+  boxly <- ggplotly(flip_chart) %>% layout(boxmode = "group")
+  
+  boxly
+})
+
+
+bscols(widths = c(3,9),
+       list(
+        
+        selectInput(inputId = 'x_b_cat',
+          label = 'Select x-variable',
+          choices = sort(colnames(listing_cat)),
+          selected = 'review_scores_rating'),
+        
+        selectInput(inputId = 'y_b_num',
+          label = 'Select y-variable',
+          choices = sort(colnames(listing_num)),
+          selected = 'price_per_pax'),
+        
+        selectInput(inputId = 'box_colour',
+                   label = 'Colour chart by:',
+                   choices = c('None',sort(colnames(listing_cat))),
+                   selected = 'host_is_superhost'),
+        
+        selectInput(inputId = 'chart_type',
+                    label = 'Select chart type:',
+                    choices = c('Box', 'Violin'),
+                    selected = 'box'),
+        
+        checkboxInput(inputId = 'flipxy',
+              label = 'Flip axis',
+              value = FALSE)
+        
+       ),
+       plotlyOutput('bbox'))
+```
+
+***
+
+### 4.3.3. Plotting categorical variables - Mosaic plot
+
+
+
+
+#### 4.3.3.1 Using [`ggstatsplot`](https://indrajeetpatil.github.io/ggstatsplot/index.html)
+
+```{r}
+bscols(widths = c(12),
+       list(
+        
+        selectInput(inputId = 'x_m_cat1',
+          label = 'Select x-variable',
+          choices = sort(colnames(listing_cat)),
+          selected = 'host_is_superhost'),
+        
+        selectInput(inputId = 'y_m_cat1',
+          label = 'Select y-variable',
+          choices = sort(colnames(listing_cat)),
+          selected = 'property_type'),
+       
+         sliderInput(inputId = 'conf_lev_bar',
+            label = "Confidence Interval",
+            min = 0,
+            max = 1,
+            value = 0.95),
+        
+        selectInput(inputId = 'propt',
+          label = 'Proportion test',
+          choices = c('Yes' = TRUE,
+                      'No' = FALSE),
+          selected = 'Yes')),
+        
+        renderPlot({
+           ggbarstats(
+              data = listing_prep,
+              x = !!colnames(listing_prep[input$x_m_cat1]), 
+              y = !!colnames(listing_prep[input$y_m_cat1]), 
+              title = paste('Mosaic plot using ggstatsplot'),
+              type = input$type,
+              conf.level = input$conf_lev_bar,
+              proportion.test = input$propt,
+              ggtheme = ggplot2::theme_classic()
+              )})
+       )
+```
+
+***
+
+#### 4.3.3.2 Using [`ggmosaic`](https://haleyjeppson.github.io/ggmosaic/), [`ggplot2`](https://ggplot2.tidyverse.org/reference/index.html) and [`ggplotly()`](https://plotly.com/ggplot2/)
+
+```{r}
+output$mosaic <- renderPlotly({
+  
+  mosaic_c <- ggplot(listing_prep) + 
+  geom_mosaic(aes(x=product(!!sym(input$x_m_cat), !!sym(input$y_m_cat)), fill = !!sym(input$x_m_cat))) + 
+    labs(
+      title = paste("Mosaic plot using ggmosaic and plotly"),
+      x = paste(input$x_m_cat),
+      y = paste(input$y_m_cat)) + 
+    theme(axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.text.x = element_text(angle = 90))
+  
+  ggplotly(mosaic_c)
+  
+})
+
+output$chisqtest <- renderPrint({
+  
+  x_var <- unlist(listing_prep[,input$x_m_cat])
+  y_var <- unlist(listing_prep[,input$y_m_cat])
+  
+  chisq <- chisq.test(x = x_var, y = y_var)
+  chisq
+  
+})
+
+bscols(widths = c(12),
+       list(
+        
+        selectInput(inputId = 'x_m_cat',
+          label = 'Select x-variable',
+          choices = sort(colnames(listing_cat)),
+          selected = 'host_is_superhost'),
+        
+        selectInput(inputId = 'y_m_cat',
+          label = 'Select y-variable',
+          choices = sort(colnames(listing_cat)),
+          selected = 'property_type'),
+        
+       plotlyOutput('mosaic'),
+       strong('Association test'),
+       verbatimTextOutput('chisqtest')
+       ))
+```
+
+# Outcome - final storyboard for Exploratory
+
+`ggstatsplot` is an amazing package, especially for those without extensive statistical background. However, given that it is a relatively new package, there are some outstanding compatability issues with Shiny as raised in [Github](https://github.com/IndrajeetPatil/ggstatsplot/issues/475). We experienced some issues when attempting to sync the shinywidgets to the chart.
+
+Although `ggplot2` lacks the automation of statistical insights, it has an extensive list of charts available, interactive with `ggplotly()` and, more importantly, compatible with R Shiny. The lack of statistical automation can be mitigated through performing the test at the server backend. 
+
+Given the above issue with `ggstatsplot` and the need for interactivity, our final R Shiny application will use charts from the `ggplot2` package and statistical tests will be automated at the backend.
+
+
+
